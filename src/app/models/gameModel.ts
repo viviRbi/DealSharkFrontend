@@ -20,26 +20,22 @@ export interface IGameDeal  {
     dealRating: number,
     thumb: string
   }
-  /*
-  {
-    "internalName": "MONSTERSLAYERS",
-    "title": "Monster Slayers",
-    "metacriticLink": "/game/pc/monster-slayers",
-    "dealID": "efnekCfOb2PEuQKTA0pkNNle%2FulyRP4j9fx0E5vdncQ%3D",
-    "storeID": "3",
-    "gameID": "167601",
-    "salePrice": "2.43",
-    "normalPrice": "8.99",
-    "isOnSale": "1",
-    "savings": "72.969967",
-    "metacriticScore": "86",
-    "steamRatingText": "Very Positive",
-    "steamRatingPercent": "88",
-    "steamRatingCount": "313",
-    "steamAppID": "496620",
-    "releaseDate": 1534291200,
-    "lastChange": 1535037686,
-    "dealRating": "10.0",
-    "thumb": "https://steamcdn-a.akamaihd.net/steam/apps/496620/capsule_sm_120.jpg?t=1533784859"
-  },
-  */
+  export interface IGameDealDetail{
+    gameInfo: IGameInfo
+  }
+
+  export interface IGameInfo{
+    name: "BioShock Infinite",
+    steamAppID: "8870",
+    salePrice: "7.49",
+    retailPrice: "29.99",
+    steamRatingText: "Overwhelmingly Positive",
+    steamRatingPercent: "95",
+    steamRatingCount: "52167",
+    metacriticScore: "94",
+    metacriticLink: "/game/pc/bioshock-infinite",
+    releaseDate: 1364169600,
+    publisher: "2K Games",
+    steamworks: "1",
+    thumb: "https://steamcdn-a.akamaihd.net/steam/apps/8870/capsule_sm_120.jpg?t=1534538071"
+  }

@@ -58,11 +58,17 @@ export class GameListComponent implements OnInit, OnDestroy {
         this.sortByParam = "Sort By Recent"
         console.log("release day", this.gameDealSorted)
         break;
+      case 'filter':
+        break;
       // sort by deal or other wrong url
       default:
         this.sortByParam = "Sort By Deal"
         this.gameDealSorted = this.gameDeal
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

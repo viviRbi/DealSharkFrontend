@@ -8,7 +8,7 @@ import { GameDetailComponent } from '../layout/game/game-detail/game-detail.comp
 const routes: Routes = [
   {path: ':sortBy', component: GameListComponent},
   {path: '', component: GameListComponent},
-  {path: 'game-detail', component: GameDetailComponent}
+  {path: 'game-detail/:deal', component: GameDetailComponent}
 ]
 
 @NgModule({

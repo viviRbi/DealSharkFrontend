@@ -1,1 +1,9 @@
-<p>game-detail works!</p>
+
+<div *ngIf="deal">
+    <p>game-detail works! </p>
+
+    <p>{{deal.name}}</p>
+    <p>release {{deal.releaseDate}}</p>
+    <p>sale price {{deal.salePrice}}</p>
+    <p>metacritic {{deal.metacriticScore}}</p>
+</div>

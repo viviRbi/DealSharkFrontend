@@ -1,5 +1,6 @@
 <p>game-list {{sortByParam}} works!</p>
-
-<div>
-    <li *ngFor="let deal of gameDealSorted">{{deal.title}} - {{deal.releaseDate}}</li>
+<app-search-game></app-search-game>
+<div *ngIf="gameDealSorted">
+    <li *ngFor="let deal of gameDealSorted" routerLink="/game/game-detail/{{deal.dealID}}">{{deal.title}} - {{deal.releaseDate}} 
+        <p>Metacritic {{deal.metacriticScore}} - Sale price {{deal.salePrice}}</p></li>
 </div>

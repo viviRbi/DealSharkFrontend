@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
-import { IGameDeal } from "../models/gameModel";
+import { IGameDeal, IGameDealDetail } from "../models/gameModel";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class GameService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
-  })
+    })
   }
 
   constructor(private http: HttpClient) { 
@@ -26,6 +26,13 @@ export class GameService {
 
   getGames(): Observable<IGameDeal[]>{
     return this.http.get<IGameDeal[]>(this.gameDealApi).pipe(
+      tap(data => console.log("tap_getGames" ,data)),
+      catchError(this.handleError<any>('getGames',[]))
+    );
+  };
+
+  getGameById(id): Observable<IGameDealDetail>{
+    return this.http.get<IGameDealDetail>(this.gameDealApi+ "?id=" + id).pipe(
       tap(data => console.log("tap_getGames" ,data)),
       catchError(this.handleError<any>('getGames',[]))
     );

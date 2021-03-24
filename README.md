@@ -12,6 +12,10 @@ http://localhost:4200/user/owned-game
 http://localhost:4200/user (profile)
 http://localhost:4200/user/saved-game
 
-http://localhost:4200/game (gamelist for now)
+game list :sortBy
+http://localhost:4200/game/sortByRecent 
+http://localhost:4200/game/sortByTitle
+http://localhost:4200/game/sortByMetacritic
+http://localhost:4200/game/sortByDeal
 http://localhost:4200/user/owned-game (game detail for now)
 ```
