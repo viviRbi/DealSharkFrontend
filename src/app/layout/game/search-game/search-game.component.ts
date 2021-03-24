@@ -13,7 +13,6 @@ export class SearchGameComponent implements OnInit {
     recent: null,
     priceLessThan: null,
     priceMoreThan: null,
-    AAA: null,
     onSale: null
   }
 
@@ -21,5 +20,10 @@ export class SearchGameComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  // so that angular notice the
+  spreadSearchTerm() {
+    return {...this.searchTerm}
+}
 
 }

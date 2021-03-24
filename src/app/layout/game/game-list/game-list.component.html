@@ -1,6 +1,7 @@
+
+<button (click)="submitSearch()">Search</button>
+<br> <br> <hr>
 <p>game-list {{sortByParam}} works!</p>
-<app-search-game></app-search-game>
-<div *ngIf="gameDealSorted">
     <li *ngFor="let deal of gameDealSorted" routerLink="/game/game-detail/{{deal.dealID}}">{{deal.title}} - {{deal.releaseDate}} 
-        <p>Metacritic {{deal.metacriticScore}} - Sale price {{deal.salePrice}}</p></li>
-</div>
+        <p>Metacritic {{deal.metacriticScore}} - Sale price {{deal.salePrice}}</p>
+    </li>

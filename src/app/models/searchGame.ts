@@ -3,6 +3,5 @@ export interface ISearchGame {
     recent?: boolean,
     priceLessThan?: number,
     priceMoreThan?: number,
-    AAA?: boolean,
     onSale?: boolean
 }

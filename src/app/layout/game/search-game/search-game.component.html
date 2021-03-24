@@ -1,12 +1,15 @@
 <p>search-game works!</p>
 <div>
-    <input placeholder="Title" name="searchTerm.title" [(ngModel)] = "searchTerm.title"> 
-    <!--input placeholder="Title" name="title" [(ngModel)] = "title"> {{title}} -->
-    <input placeholder="price more than" name="priceMoreThan" [(ngModel)] = "searchTerm.priceMoreThan"> 
-    > price > 
-    <input placeholder="price less than" name="priceLessThan" [(ngModel)] = "searchTerm.priceLessThan">
-    AAA? <input type="checkbox" name="AAA" [(ngModel)] = "searchTerm.AAA">
-    On sale? <input type="checkbox" name="onSale" [(ngModel)] = "searchTerm.onSale"> 
+    <form>
+        <input placeholder="Title" name="searchTerm.title" [(ngModel)] = "searchTerm.title"> 
+        <!--input placeholder="Title" name="title" [(ngModel)] = "title"> {{title}} -->
+        Highest price <input placeholder="Less than" name="priceLessThan" [(ngModel)] = "searchTerm.priceMoreThan"> 
+         
+        Lowest price <input placeholder="more than" name="priceMoreThan" [(ngModel)] = "searchTerm.priceLessThan">
+        Recent? <input type="checkbox" name="recent" [(ngModel)] = "searchTerm.recent">
+        On sale? <input type="checkbox" name="onSale" [(ngModel)] = "searchTerm.onSale"> 
+    </form>
 </div>
-{{searchTerm | json}}
+
 <br>
+<app-game-list [searchTerm]="searchTerm"></app-game-list>

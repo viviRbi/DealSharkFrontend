@@ -38,6 +38,13 @@ export class GameService {
     );
   };
 
+  getGameByQuery(query):Observable<IGameDeal[]>{
+    return this.http.get<IGameDeal[]>(this.gameDealApi + query).pipe(
+      tap(data => console.log("tap_getGamesByQuery" ,this.gameDealApi + query)),
+      catchError(this.handleError<any>('getGamesByQuery',[]))
+    );
+  }; 
+
   // for welcome carousel
   getFourHighMetaCriticGame(): Observable<IGameDeal[]>{
     return this.http.get<IGameDeal[]>(this.gameDealApi + '?sortBy=metacritic&pageSize=4').pipe(
