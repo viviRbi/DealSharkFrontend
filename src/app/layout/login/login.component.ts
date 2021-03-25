@@ -12,21 +12,10 @@ export class LoginComponent  {
   constructor(loginService: LoginService) { }
 
 
-  title = 'Register Hero'
-  userLogin: IUserLoginTemplate = {username:"",password:""}
-   
-  public registerHeroFromService(): void {
-    this.loginService.registerHero(this.hero).subscribe(data => this.clientMessage = data, 
-      error => this.clientMessage.message = 'SOMETHING WENT WRONG!');
-      
-
-
-  }
+ 
 
   
-consoleUser(){
-  console.log(this.userLogin)
-}
+
 
 
   // Constructor Injection
