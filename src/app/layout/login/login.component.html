@@ -24,7 +24,7 @@
 	<div class="container-fluid">
 
 <!--If you declare a function and u doesn't have it in the ts file (in the export class), it'll throw an error -->
-		<form #loginForm="ngForm" name="loginForm" (ngSubmit)="registerUserFromService()">
+		<form #loginForm="ngForm" name="loginForm" (ngSubmit)="loginUserFromService()">
 
 <input [(ngModel)]="userLogin.username" name="username" required minlength="2">
 <em *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.touched">Required</em>

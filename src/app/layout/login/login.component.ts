@@ -23,7 +23,7 @@ export class LoginComponent  {
 
   user?: User
    
-  public registerUserFromService(): void {
+  public loginUserFromService(): void {
 
     this.loginService.loginUser(this.userLogin).subscribe(data =>this.user = data);
     // Wrong username and password case
@@ -31,11 +31,10 @@ export class LoginComponent  {
       //this.user = null
       console.log("Your username is incorrect")
       this.err= "Incorrect username or password"
-    }
- else {
+    }else {
    // correct username and password
    // save to session
- }    
+    }    
   }
 
 
@@ -43,4 +42,4 @@ export class LoginComponent  {
     
 
 
-  }
+}

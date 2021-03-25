@@ -5,28 +5,36 @@
 
     <div class="panel-body">
         <div class="list-group">
-            <div class="list-group-item">
+            <form class="list-group-item" #registerForm="ngForm" name="registerForm" (ngSubmit)="registerUserFromService()" >
 
                 <div class="form-group">
                     <!--  here i want to take input from the user, and change the property of the hero object in my ts file -->
-                    <input [(ngModel)]="user.username" placeholder="username" class="form-control">
-                    <input [(ngModel)]="user.password" placeholder="password" class="form-control">
-                    <input [(ngModel)]="user.firstName" placeholder="First Name" class="form-control">
-                    <input [(ngModel)]="user.lastName" placeholder="Last Name" class="form-control">
+                    <input [(ngModel)]="user.username" placeholder="username" class="form-control" required>
+                    <em *ngIf="registerForm.controls.username?.invalid && registerForm.controls.username?.touched">Required</em>
+
+                    <input [(ngModel)]="user.password" placeholder="password" class="form-control" required>
+                    <em *ngIf="registerForm.controls.password?.invalid && registerForm.controls.password?.touched">Required</em>
+
+                    <input [(ngModel)]="user.firstName" placeholder="First Name" class="form-control" required>
+                    <em *ngIf="registerForm.controls.firstName?.invalid && registerForm.controls.firstName?.touched">Required</em>
+
+                    <input [(ngModel)]="user.lastName" placeholder="Last Name" class="form-control" required>
+                    <em *ngIf="registerForm.controls.lastName?.invalid && registerForm.controls.lastName?.touched">Required</em>
+
+                    <input [(ngModel)]="user.balance" placeholder="Last Name" class="form-control" required>
+                    <em *ngIf="registerForm.controls.balance?.invalid && registerForm.controls.balance?.touched">Required</em>
                     
                 </div>
 
                 <div>
-                    <button class="btn btn-primary btn-center" (click)="registerUserFromService()">REGISTER USER</button>
+                    <button class="btn btn-primary btn-center">REGISTER USER</button>
                 </div>
 
                 <div>
                     <!-- {{ clientMessage.message }} -->
                 </div>
-            </div>
             
-
-            
+            </form>
         </div>
 
     </div>

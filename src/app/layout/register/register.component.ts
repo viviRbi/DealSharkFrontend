@@ -9,13 +9,27 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
   title = 'Register User';
 
   constructor(private userService: UserService) { }
 
-  public user: User;
+  public user: User = {
+    id: 0,
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    balance: 100
+  };
+
+  ngOnInit(){
+    console.log(this.user)
+    if (this.user == null){
+      console.log(null)
+    }
+  }
 
   public clientMessage : ClientMessage = new ClientMessage("");
 
