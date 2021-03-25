@@ -24,18 +24,28 @@
 	<div class="container-fluid">
 
 <!--If you declare a function and u doesn't have it in the ts file (in the export class), it'll throw an error -->
-		<form #loginForm="ngForm" name="loginForm" (ngSubmit)="loginUserFromService()">
+<form #loginForm="ngForm" name="loginForm" (ngSubmit)="loginUserFromService()">
 
-<input [(ngModel)]="userLogin.username" name="username" required minlength="2">
-<em *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.touched">Required</em>
- <input [(ngModel)]="userLogin.password" name="password" required minlength="2">
-
-<input type="submit" value ="Submit"  [disabled] = "!loginForm.form.valid"/>
-
-<!-- User incorrect login -->
-<div *ngIf="err">{{err}}</div>
-
-		</form>
+	<input [(ngModel)]="userLogin.username" name="username" required minlength="3">
+	
+	<em *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.untouched">Required Field</em>
+	<em *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.touched">Must be more than two characters</em>
+	 
+	<br />
+	<br />
+	<input [(ngModel)]="userLogin.password" name="password" required minlength="3">
+	 <em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.untouched">Required Field</em>
+	 <em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched">Must be more than two characters</em>
+	<br />
+	<br />
+	
+	 <input type="submit" value ="Submit"  [disabled] = "!loginForm.form.valid"/>
+	
+	<!-- User incorrect login -->
+	<div *ngIf="err">{{err}}</div>
+	
+			</form>
+	
 
 	</div>
 
