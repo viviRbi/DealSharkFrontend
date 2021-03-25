@@ -17,6 +17,9 @@ export class LoginComponent  {
 
   public clientMessage: ClientMessage = new ClientMessage('');
 
+
+ 
+
   userLogin: IUserLoginTemplate = {username:"",password:""}
    
   public registerUserFromService(): void {
@@ -27,10 +30,9 @@ export class LoginComponent  {
       console.log("Here's the userLogin object: " + this.userLogin);
   }
 
+
   
-consoleUser(){
-  console.log(this.userLogin)
-}
+
 
 
   // Constructor Injection

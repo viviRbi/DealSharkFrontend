@@ -1,3 +1,4 @@
+import { UserModule } from './../layout/user/user.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,7 +21,9 @@ const routes: Routes = [
   // -------------------End Lazy Loading
 
   {path:'', redirectTo: '/welcome', pathMatch: 'full'},
-  {path:'**', component: NotFoundPageComponent}             // ** = path not found
+  {path:'**', component: NotFoundPageComponent},             // ** = path not found
+
+  { path: 'register', loadChildren: () => import('../layout/register/register.module').then(m=>m.RegisterModule)}
 ];
 
 @NgModule({
