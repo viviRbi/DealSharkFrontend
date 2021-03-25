@@ -1,6 +1,9 @@
+import { ClientMessage } from './../../models/client-message.model';
 import { LoginService } from './../../services/login.service';
 import { IUserLoginTemplate } from './../../models/userLogin';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,11 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LoginComponent  {
+  
 
-  constructor(loginService: LoginService) { }
+  constructor(private loginService: LoginService) { }
+
+  public clientMessage: ClientMessage = new ClientMessage('');
 
 
  
+
+  userLogin: IUserLoginTemplate = {username:"",password:""}
+   
+  public registerUserFromService(): void {
+
+    this.loginService.loginUser(this.userLogin).subscribe(data => this.userLogin = data, 
+      error => this.clientMessage.message = 'SOMETHING WENT WRONG!');
+
+      console.log("Here's the userLogin object: " + this.userLogin);
+  }
+
 
   
 
