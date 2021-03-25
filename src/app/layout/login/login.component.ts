@@ -33,7 +33,9 @@ export class LoginComponent  {
       this.err= "Incorrect username or password"
     }else {
    // correct username and password
+   console.log("Correct username/password. Here's the info for the user who logged in: " + JSON.stringify(this.user));
    // save to session
+   sessionStorage.setItem('currentUser', JSON.stringify(this.user));
     }    
   }
 
