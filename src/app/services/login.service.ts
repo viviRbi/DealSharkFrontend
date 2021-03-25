@@ -23,9 +23,9 @@ export class LoginService {
 
 
 
-  public loginUser(login: loginTemplate): Observable<loginTemplate> {
-    console.log("Here it is again: " + login);
-    return this.http.post<loginTemplate>(`${DEALSHARK_URL}authenticateUser`, login, this.httpOptions) .pipe(
+  public loginUser(login: loginTemplate): Observable<User> {
+    console.log("Here it is again: " + login.username);
+    return this.http.post<User>(`${DEALSHARK_URL}authenticateUser`, login, this.httpOptions) .pipe(
       catchError(this.handleError<User>('loginUser', undefined))
     )
   }
