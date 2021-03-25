@@ -15,7 +15,7 @@ export class RegisterComponent {
 
   constructor(private userService: UserService) { }
 
-  public user: User = new User(0, '', '', '', '', 100);
+  public user: User;
 
   public clientMessage : ClientMessage = new ClientMessage("");
 
