@@ -12,7 +12,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { WelcomeComponent } from './layout/welcome/welcome.component';
 import { LoginComponent } from './layout/login/login.component';
-import { LoginServiceComponent } from './services/login-service/login-service.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import { LoginServiceComponent } from './services/login-service/login-service.co
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    LoginServiceComponent
   ],
 
   imports: [
