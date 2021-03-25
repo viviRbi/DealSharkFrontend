@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   gameDealApi: "https://www.cheapshark.com/api/1.0/deals",
-  frontEnd: "http://localhost:4200/"
+  frontEnd: "http://localhost:4200/",
+  sessionNameForCart: "cartItem",
+  sessionNameForSave: "savedItem"
 };
 
 /*

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, DoCheck, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { Subscription} from 'rxjs';
 
 import { IGameDeal } from 'src/app/models/gameModel';
@@ -13,7 +13,7 @@ import { ISearchGame } from 'src/app/models/searchGame';
   templateUrl: './game-list.component.html',
   styleUrls: ['./game-list.component.css']
 })
-export class GameListComponent implements OnInit, DoCheck, OnDestroy {
+export class GameListComponent implements OnInit, OnDestroy {
   gameDeal: IGameDeal[];
   gameDealSorted: IGameDeal[];
   sub: Subscription;
@@ -31,29 +31,11 @@ export class GameListComponent implements OnInit, DoCheck, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  ngDoCheck() {
-    console.log('check')
-      // convert to key, value array [[key,value],[key,value]]
-      /*if(this.gameDealSorted != undefined){
-        let inputArr = Object.entries(this.searchTerm).map(([key, value]) => [key, value])
-        for (let i =0; i<inputArr.length; i++) {
-          if (inputArr[i][0] == 'title') this.gameDealSorted.filter(each => each.title.includes(inputArr[i][1] + '')) // turn to a string
-          if (inputArr[i][0] == 'recent') this.gameDealSorted.sort(this.gameService.sortOn("releaseDate", -1))
-           //if there is sale price, filter by sale parice, else filter by normal price
-          if (inputArr[i][0] == 'priceLessThan') this.gameDealSorted.filter(each => each.salePrice>0? each.salePrice < inputArr[i][1]: each.normalPrice < inputArr[i][1])
-          if (inputArr[i][0] == 'priceMoreThan') this.gameDealSorted.filter(each => each.salePrice>0? each.salePrice > inputArr[i][1]: each.normalPrice > inputArr[i][1])
-
-          //if (inputArr[i][0] == 'AAA') this.gameDealSorted.filter(each => each.isOnSale == 1) // 0: false 1: true
-        };
-      }*/
-      //this.gameDealSorted.filter(each => each[filterArr[0]] == filterArr[1])
-      
-  }
 
   submitSearch(){
     if(this.gameDealSorted != undefined){
       let queryUrl : string =  ""
-
+      // searchTerm was passed using Input
       let inputArrRaw = Object.entries(this.searchTerm).map(([key, value]) => [key, value])
       let inputArr = []
     

@@ -25,17 +25,18 @@ export interface IGameDeal  {
   }
 
   export interface IGameInfo{
-    name: "BioShock Infinite",
-    steamAppID: "8870",
-    salePrice: "7.49",
-    retailPrice: "29.99",
-    steamRatingText: "Overwhelmingly Positive",
-    steamRatingPercent: "95",
-    steamRatingCount: "52167",
-    metacriticScore: "94",
-    metacriticLink: "/game/pc/bioshock-infinite",
+    name: string,
+    gameID: number,
+    steamAppID: number,
+    salePrice: number,
+    retailPrice: number,
+    steamRatingText: string,
+    steamRatingPercent: number,
+    steamRatingCount: number,
+    metacriticScore: number,
+    metacriticLink: number,
     releaseDate: 1364169600,
-    publisher: "2K Games",
-    steamworks: "1",
-    thumb: "https://steamcdn-a.akamaihd.net/steam/apps/8870/capsule_sm_120.jpg?t=1534538071"
+    publisher: string,
+    steamworks: number,
+    thumb: string
   }

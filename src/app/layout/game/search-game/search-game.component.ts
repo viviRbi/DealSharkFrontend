@@ -20,10 +20,5 @@ export class SearchGameComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
-  // so that angular notice the
-  spreadSearchTerm() {
-    return {...this.searchTerm}
-}
 
 }
