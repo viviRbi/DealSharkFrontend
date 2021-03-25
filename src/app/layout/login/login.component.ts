@@ -17,6 +17,7 @@ export class LoginComponent  {
 
   public clientMessage: ClientMessage = new ClientMessage('');
 
+
   userLogin?: IUserLoginTemplate = {username:"",password:""}
   err: String
 
@@ -37,8 +38,9 @@ export class LoginComponent  {
  }    
   }
 
-  
-consoleUser(){
-  console.log(this.userLogin)
-}
+
+
+    }
+*/
+
   }
