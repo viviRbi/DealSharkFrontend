@@ -18,54 +18,29 @@ export class LoginComponent  {
   public clientMessage: ClientMessage = new ClientMessage('');
 
 
- 
+  userLogin?: IUserLoginTemplate = {username:"",password:""}
+  err: String
 
-  userLogin: IUserLoginTemplate = {username:"",password:""}
+  user?: User
    
   public registerUserFromService(): void {
 
-    this.loginService.loginUser(this.userLogin).subscribe(data => this.userLogin = data, 
-      error => this.clientMessage.message = 'SOMETHING WENT WRONG!');
-
-      console.log("Here's the userLogin object: " + this.userLogin);
+    this.loginService.loginUser(this.userLogin).subscribe(data =>this.user = data);
+    // Wrong username and password case
+    if (this.user == null){
+      //this.user = null
+      console.log("Your username is incorrect")
+      this.err= "Incorrect username or password"
+    }
+ else {
+   // correct username and password
+   // save to session
+ }    
   }
 
 
-  
 
-
-
-  // Constructor Injection
-
-
-  // For databinding
-  /* ..... 
-
-  console.log("send login triggered");
-
-    let uName = document.getElementById('uName').value;
-
-    let pWord = document.getElementById('pWord').value;
-
-    console.log(`Username: ${uName}`);
-    console.log("testing");
-    console.log(`Password: ${pWord}`);
-
-    let loginTemplate = {
-        username: uName,
-        password: pWord
     }
 */
 
-  // Client message to the user
-
-  /*
-  public clientMessage: ClientMessage = new ClientMessage('');
-
-  public loginUserFromService(loginTemplate): void {
-
-    this.userService.loginUser(this.hero).subscribe(data => this.clientMessage = data, 
-      
-      error => this.clientMessage.message = 'SOMETHING WENT WRONG!');
-      */
   }
