@@ -1,0 +1,30 @@
+.banner {
+    height: 200px;
+}
+.sort-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.sort {
+    height: 200px;
+    width: 49%;
+    position: relative;
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+}
+.sort .label{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    padding: 3px 10px;
+    border-radius: 9px 9px 0 0;
+}
+.sort:hover{
+    background-blend-mode: luminosity;
+    box-shadow: 1px 1px 6px black;
+}
+.sort:hover .label{
+    background: rgb(109, 11, 11);
+}

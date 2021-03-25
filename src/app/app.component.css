@@ -2,7 +2,6 @@
 .main-content{
     /* so that footer always at the bottom */
     min-height: 80vh;
-    background: grey;
     padding-bottom: 20px;
     padding-top:10px;
 }
@@ -11,7 +10,6 @@
 }
 .footer{
     min-height: 15vh;
-    background: lightblue;
     padding-top: 20px;
     padding-bottom: 20px;
     display: block;

@@ -46,9 +46,9 @@ export class GameService {
   }; 
 
   // for welcome carousel
-  getFourHighMetaCriticGame(): Observable<IGameDeal[]>{
-    return this.http.get<IGameDeal[]>(this.gameDealApi + '?sortBy=metacritic&pageSize=4').pipe(
-      tap(data => console.log("tap_get4Games high metacritic score" ,data)),
+  getFiveHighMetaCriticGame(): Observable<IGameDeal[]>{
+    return this.http.get<IGameDeal[]>(this.gameDealApi + '?sortBy=metacritic&pageSize=5').pipe(
+      tap(data => console.log("tap_get5Games high metacritic score" ,data)),
       catchError(this.handleError<any>('getGames',[]))
     );
   }

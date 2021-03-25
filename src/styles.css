@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import './bootstrap.min.css'
+@import './bootstrap.min.css';
+
+.bg-black {background:black}
+.bg-white {background: white}
+.border-radius-small {border-radius: 10px;}
+.pad-small {padding: 10px}
+.bg-dark {background: rgb(29, 28, 28)}
+.bg-red {background: rgb(109, 11, 11);}
