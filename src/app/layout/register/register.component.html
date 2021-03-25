@@ -9,25 +9,25 @@
 
                 <div class="form-group">
                     <!--  here i want to take input from the user, and change the property of the hero object in my ts file -->
-                    <input [(ngModel)]="user.username" placeholder="username" class="form-control" required>
+                    <input [(ngModel)]="user.username" placeholder="username" name="username" class="form-control" required>
                     <em *ngIf="registerForm.controls.username?.invalid && registerForm.controls.username?.touched">Required</em>
 
-                    <input [(ngModel)]="user.password" placeholder="password" class="form-control" required>
+                    <input [(ngModel)]="user.password" placeholder="password" name="password" class="form-control" required>
                     <em *ngIf="registerForm.controls.password?.invalid && registerForm.controls.password?.touched">Required</em>
 
-                    <input [(ngModel)]="user.firstName" placeholder="First Name" class="form-control" required>
+                    <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" required>
                     <em *ngIf="registerForm.controls.firstName?.invalid && registerForm.controls.firstName?.touched">Required</em>
 
-                    <input [(ngModel)]="user.lastName" placeholder="Last Name" class="form-control" required>
+                    <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" required>
                     <em *ngIf="registerForm.controls.lastName?.invalid && registerForm.controls.lastName?.touched">Required</em>
 
-                    <input [(ngModel)]="user.balance" placeholder="Last Name" class="form-control" required>
-                    <em *ngIf="registerForm.controls.balance?.invalid && registerForm.controls.balance?.touched">Required</em>
+                    <input [(ngModel)]="user.balance" placeholder="Balance" name="balance" class="form-control" required min="100">
+                    <em *ngIf="registerForm.controls.balance?.invalid && registerForm.controls.balance?.touched">Balance had to be from 100</em>
                     
                 </div>
 
                 <div>
-                    <button class="btn btn-primary btn-center">REGISTER USER</button>
+                    <button class="btn btn-primary btn-center" [disabled] = "!registerForm.form.valid">REGISTER USER</button>
                 </div>
 
                 <div>
