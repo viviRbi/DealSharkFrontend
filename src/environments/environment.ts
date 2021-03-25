@@ -10,8 +10,8 @@ export const environment = {
   sessionNameForSave: "savedItem"
 };
 
-export const DEALSHARK_URL = `http://localhost:8080/Project-2/`
 
+export const DEALSHARK_URL = `http://localhost:8080/Project-2/`
 
 /*
  * For easier debugging in development mode, you can import the following file
