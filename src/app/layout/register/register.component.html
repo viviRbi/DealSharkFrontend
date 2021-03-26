@@ -23,7 +23,6 @@
                     <br />
                     <br />
                     <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" required minlength="1">
-                    <em *ngIf="registerForm.controls.lastName?.invalid && registerForm.controls.lastName?.untouched">Required Field</em>
 	                <em *ngIf="registerForm.controls.lastName?.invalid && registerForm.controls.lastName?.touched">Must be more than 0 characters</em>
                     <br />
                     <br />

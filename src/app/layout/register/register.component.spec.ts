@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {
@@ -8,6 +9,10 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
       declarations: [ RegisterComponent ]
     })
     .compileComponents();
@@ -19,7 +24,10 @@ describe('RegisterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+ // it('should render title', () => {
+ //   const fixture = TestBed.createComponent(RegisterComponent);
+  //  fixture.detectChanges();
+  //  const compiled = fixture.nativeElement;
+  //  expect(compiled.querySelector('span').textContent).toContain('Register User');
+//  });
 });
