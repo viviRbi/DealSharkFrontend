@@ -1,9 +1,9 @@
 
 <nav class ="nav-wrapper row">
-    <a class="col-6 text-left" href="#">
-        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        Bootstrap
-      </a>
+    <h3 class="col-6 text-left pointer" routerLink="/">
+        <!--<img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">-->
+        DealShark
+    </h3>
       <div class ="nav-right col-6 d-inline text-right">
         <span class="btn text-light" routerLink="/login" *ngIf="!loginService.loggedIn()" >Login</span>
         <span class="btn text-light" (click)="logout()" *ngIf="loginService.loggedIn()">Logout</span>
