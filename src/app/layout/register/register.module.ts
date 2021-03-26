@@ -13,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms'
       FormsModule,
       RoutingRegisterModule,
       ReactiveFormsModule,
-      NgModule
     ]
   })
   export class RegisterModule { }
