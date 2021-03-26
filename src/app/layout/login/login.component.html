@@ -14,16 +14,16 @@
 <!--If you declare a function and u doesn't have it in the ts file (in the export class), it'll throw an error -->
 		<form #loginForm="ngForm" name="loginForm" (ngSubmit)="loginUserFromService()">
 
-<input [(ngModel)]="userLogin.username" name="username" required minlength="2">
+			<input [(ngModel)]="userLogin.username" name="username" required minlength="3">
 
-<em *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.touched">Required</em>
- <input [(ngModel)]="userLogin.password" name="password" required minlength="2">
+			<em *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.touched">Required</em>
+			<input [(ngModel)]="userLogin.password" name="password" required minlength="3">
 
-<input type="submit" value ="Submit"  [disabled] = "!loginForm.form.valid"/>
+			<input type="submit" value ="Submit"  [disabled] = "!loginForm.form.valid"/>
 
-<!-- User incorrect login -->
-<div *ngIf="message">{{message}}</div>
-<div routerLink = "/register" class="text-light pointer">Register</div>
+			<!-- User incorrect login -->
+			<div *ngIf="message">{{message}}</div>
+			<div routerLink = "/register" class="text-light pointer">Register</div>
 		</form>
 
 	</div>

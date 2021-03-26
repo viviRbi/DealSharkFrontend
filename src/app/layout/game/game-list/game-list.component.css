@@ -1,0 +1,17 @@
+.search-btn{
+    padding: 5px 10px;
+    background: white;
+    color: black;
+    border: 1px solid white;
+}
+.search-btn:hover{
+    background: rgb(41, 40, 40);
+    color: white;
+}
+.search-holder{
+    margin-bottom: 60px;
+    justify-content: end;
+}
+.sort-title{
+    margin-bottom: 30px;
+}

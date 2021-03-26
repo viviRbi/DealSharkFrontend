@@ -5,6 +5,8 @@
         DealShark
     </h3>
       <div class ="nav-right col-6 d-inline text-right">
+        <span class="btn text-light">Favourite ({{savedGameNumber}})</span>
+
         <span class="btn text-light" routerLink="/login" *ngIf="!loginService.loggedIn()" >Login</span>
         <span class="btn text-light" (click)="logout()" *ngIf="loginService.loggedIn()">Logout</span>
         <!--<button>Favourite ({{savedGameNumber}})</button><button>Cart ({{inCartNumber}})</button>-->

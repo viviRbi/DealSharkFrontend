@@ -8,6 +8,9 @@
 .bg-dark {background: rgb(29, 28, 28)}
 .bg-red {background: rgb(109, 11, 11);}
 .pointer {cursor: pointer}
+.border-light {border: 1px solid white}
+.float-right {float: right;}
+.float-clear{clear: both;}
 .text-right{
     text-align: right;
 }
