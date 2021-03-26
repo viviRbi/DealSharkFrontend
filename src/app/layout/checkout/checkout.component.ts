@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from "../../../environments/environment"
 
 @Component({
   selector: 'app-checkout',
@@ -12,4 +13,11 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  viewSessionStorage() {
+    var session = JSON.parse(sessionStorage.getItem(environment.sessionNameForCart));
+    console.log("here's what's in session name:")
+    console.log(session)
 }
+}
+
+

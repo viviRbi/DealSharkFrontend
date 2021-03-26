@@ -21,7 +21,6 @@ import { LoginComponent } from './layout/login/login.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
 
   ],
 

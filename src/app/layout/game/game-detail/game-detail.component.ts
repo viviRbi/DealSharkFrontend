@@ -58,8 +58,14 @@ export class GameDetailComponent implements OnInit, OnDestroy {
           inCart.push(parseGames[i])
         }
       }
-    } 
+    }
+    console.log(inCart)
     sessionStorage.setItem(sessionName, JSON.stringify(inCart))
+
+    // I needed to convert the session into 'sessionName' with the quotations to access it from checkout
+    var session = JSON.parse(sessionStorage.getItem(sessionName));
+    sessionStorage.setItem('sessionName', JSON.stringify(session))
+
   }
 
   getGameById(){
