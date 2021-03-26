@@ -18,13 +18,11 @@ export class WelcomeComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.getFiveGame()
+    //this.getFiveGame()
   }
 
-  getFiveGame(){
-    // let game = "sd , dsd, sds, sd, sd"
-    // let a = game.split(",")
-    // console.log(a)
+  //----- Really Low resolution picture
+  /*getFiveGame(){
     this.sub = this.gameService.getFiveHighMetaCriticGame().subscribe(dataArr => this.games = dataArr)
-  }
+  }*/
 }

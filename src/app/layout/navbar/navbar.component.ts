@@ -12,10 +12,12 @@ export class NavbarComponent implements OnInit, DoCheck {
   inCartNumber?: number
   savedGameNumber?: number
 
+  userLoginLogout: string = "Login"
+
   constructor() { }
 
   ngOnInit(): void {
-   
+   this.getUser()
   }
 // Use DoCheck because OnChanges only when primitive data change
   ngDoCheck(){
@@ -23,5 +25,10 @@ export class NavbarComponent implements OnInit, DoCheck {
     this.savedGameNumber = Boolean(sessionStorage.getItem('savedItem'))== true ?JSON.parse(sessionStorage.getItem('savedItem')).length : 0
     console.log(this.inCartNumber, this.savedGameNumber)
   }
+
+  getUser(){
+    this.userLoginLogout = Boolean(sessionStorage.getItem('currentUser'))? "Logout" : "Login"
+  }
+
 
 }

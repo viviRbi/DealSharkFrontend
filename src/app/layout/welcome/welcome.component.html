@@ -1,28 +1,27 @@
-<p>welcome works!</p>
-<main>
-    <section class="row">
-        <div class="bg-white banner border-radius-small col-12 pad-small" [ngStyle]="{backgroundImage:'url(${game[0].thumb})'}">
-            Banner
-        </div>
+
+<main class="welcome-page">
+    <section class="">
+        <div class="bg-white banner border-radius-small col-12 pad-small" > </div>
     </section>
 
-    <hr>
+    <section class= "welcome-text bg-white  pad-small border-radius-small">
+        <h2 class="text-danger headline">Welcome to DealShark!</h2>
+    </section>
 
-    <section class="row sort-wrapper">
-        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game" [ngStyle]="{backgroundImage:'url(${game[1].thumb})'}" >
+    <section class=" sort-wrapper1">
+        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game" >
             <span class="bg-black text-light label">Sort by deal</span>
         </div>       
-        <div class="bg-secondary border-radius-small sort pad-small " routerLink="/game/sortByRecent" [ngStyle]="{backgroundImage:'url(${game[2].thumb})'}">
+        <div class="bg-secondary border-radius-small sort pad-small " routerLink="/game/sortByRecent" >
             <span class="bg-black text-light label">Sort by recent</span>
         </div>
     </section>
-    <hr>
 
-    <section class="row sort-wrapper">
-        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game/sortByMetaCritic" [ngStyle]="{backgroundImage:'url({game[3].thumb})'}">
+    <section class=" sort-wrapper2">
+        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game/sortByMetaCritic" >
             <span class="bg-black text-light label">Sort by metacritic</span>
         </div>
-        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game/sortByTitle" [ngStyle]="{backgroundImage:'url(${game[4].thumb})'}">
+        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game/sortByTitle" >
             <span class="bg-black text-light label">Sort by title</span>
         </div>
     </section>

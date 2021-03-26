@@ -1,17 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.welcome-text{
+    min-height: 60px;
+    margin: auto;
+    margin-bottom: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+.welcome-text .headline{
+    text-align: center;
+    margin: auto;
+    font-family: 'Lobster', cursive;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #ccc;
+}
 .banner {
     height: 200px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
-.sort-wrapper{
+.sort-wrapper1, .sort-wrapper2{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.sort-wrapper2{
+    margin-bottom: 60px;
+}
+.sort, .banner{
+    background-position: center;
+    background-size: cover;
+}
+.banner {
+    background-image : url('src/assets/feature.png');
+}
+.sort-wrapper1 .sort:nth-child(1){
+    background-image : url('src/assets/wargame.jpg');
+}
+.sort-wrapper1 .sort:nth-child(2){
+    background-image : url('src/assets/Civilization.jpg');
+}
+.sort-wrapper2 .sort:nth-child(1){
+    background-image : url('src/assets/Hob.jpg');
+}
+.sort-wrapper2 .sort:nth-child(2){
+    background-image : url('src/assets/Unravel.jpg');
 }
 .sort {
     height: 200px;
     width: 49%;
     position: relative;
     cursor: pointer;
-    background-position: center;
-    background-size: cover;
+    margin-bottom: 20px;
+    /* background-image: url("http://whatson.ae/wp-content/uploads/2019/02/rs7star-lounge.jpg"); */
 }
 .sort .label{
     position: absolute;
@@ -27,4 +67,9 @@
 }
 .sort:hover .label{
     background: rgb(109, 11, 11);
+}
+@media screen and (max-width:486px){
+    .sort {
+        width:100%;
+    }
 }

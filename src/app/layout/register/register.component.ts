@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit{
     lastName: '',
     balance: 100
   };
+  message : string
 
   ngOnInit(){
     console.log(this.user)
@@ -34,7 +35,10 @@ export class RegisterComponent implements OnInit{
   public clientMessage : ClientMessage = new ClientMessage("");
 
   public registerUserFromService(): void {
-    this.userService.registerUser(this.user).subscribe(data => this.clientMessage = data, error => this.clientMessage.message = 'SOMETHING WENT WRONG IN REGISTER.TS')
+    this.userService.registerUser(this.user).subscribe(data => {
+      this.clientMessage = data
+      this.message = "You have successfully create an account. Please log in"
+    }, error => this.clientMessage.message = 'SOMETHING WENT WRONG IN REGISTER.TS')
   }
 
 }

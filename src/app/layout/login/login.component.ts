@@ -19,29 +19,28 @@ export class LoginComponent  {
 
 
   userLogin?: IUserLoginTemplate = {username:"",password:""}
-  err: String
+  message: String
 
   user?: User
    
   public loginUserFromService(): void {
 
-    this.loginService.loginUser(this.userLogin).subscribe(data =>this.user = data);
-    // Wrong username and password case
-    if (this.user == null){
-      //this.user = null
-      console.log("Your username is incorrect")
-      this.err= "Incorrect username or password"
-    }else {
-   // correct username and password
-   console.log("Correct username/password. Here's the info for the user who logged in: " + JSON.stringify(this.user));
-   // save to session
-   sessionStorage.setItem('currentUser', JSON.stringify(this.user));
-    }    
+    this.loginService.loginUser(this.userLogin).subscribe(data =>{
+          // Wrong username and password case
+        if (data == null || data.username == ""){
+          //this.user = null
+          console.log("Your username is incorrect")
+          this.message= "Incorrect username or password"
+        }else {
+        // correct username and password
+        console.log("Correct username/password. Here's the info for the user who logged in: " + JSON.stringify(this.user));
+        // save to session
+        sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+        this.user = data
+        this.message= "Successfully submited"
+      }
+    })
   }
-
-
-
-    
 
 
 }
