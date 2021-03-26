@@ -1,8 +1,33 @@
 
+<div class="search-holder row text-right">
+  <button (click)="submitSearch()" class=" search-btn border-radius-small">Search Game</button>
+</div>
 
-<button (click)="submitSearch()">Search</button>
-<br> <br> <hr>
-<p>game-list {{sortByParam}} works!</p>
-    <li *ngFor="let deal of gameDealSorted" routerLink="/game/game-detail/{{deal.dealID}}">{{deal.title}} - {{deal.releaseDate}} 
-        <p>Metacritic {{deal.metacriticScore}} - Sale price {{deal.salePrice}}</p>
-    </li>
+<h2 class="text-light sort-title">{{sortByParam}}</h2>
+
+<table class="table table-dark" *ngIf="gameDealSorted" >
+    <thead>
+      <tr>
+        <th scope="col" (click)="sortByTitle()" class="pointer">Title</th>
+        <th scope="col" (click)="sortBySalePrice()" class="pointer">Sale Price</th>
+        <th scope="col">Normal Price</th>
+        <th scope="col" (click)="sortByMetaCritic()" class="pointer">MetaCritic</th>
+        <th scope="col" (click)="sortByDeal()" class="pointer">Deal Rating</th>
+        <th scope="col" >On Sale</th>
+        <th scope="col" (click)="sortByRecent()" class="pointer">Release Day</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let deal of gameDealSorted">
+      <tr routerLink="/game/game-detail/{{deal.dealID}}" class="pointer">
+        <td>{{deal.title}}</td>
+        <td>{{deal.salePrice}}</td>
+        <td>{{deal.normalPrice}}</td>
+        <td>{{deal.metacriticScore}}</td>
+        <td>{{deal.dealRating}}</td>
+        <td *ngIf="deal.isOnSale == 0">No</td>
+        <td *ngIf="deal.isOnSale == 1">Yes</td>
+        <td>{{deal.releaseDate | date}}</td>
+      </tr>
+    </tbody>
+</table>
+

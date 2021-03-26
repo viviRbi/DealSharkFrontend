@@ -61,7 +61,7 @@
     padding: 3px 10px;
     border-radius: 9px 9px 0 0;
 }
-.sort:hover{
+.sort:hover, .banner:hover{
     background-blend-mode: luminosity;
     box-shadow: 1px 1px 6px black;
 }
