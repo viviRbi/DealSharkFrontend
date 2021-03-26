@@ -1,5 +1,7 @@
+
 import { Component, OnInit, DoCheck, Input, Output } from '@angular/core';
 import { IGameInfo } from 'src/app/models/gameModel';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,23 +14,22 @@ export class NavbarComponent implements OnInit, DoCheck {
   inCartNumber?: number
   savedGameNumber?: number
 
-  userLoginLogout: string = "Login"
+  constructor(public loginService: LoginService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-   this.getUser()
+  ngOnInit(): void{
   }
 // Use DoCheck because OnChanges only when primitive data change
   ngDoCheck(){
     this.inCartNumber = Boolean(sessionStorage.getItem('cartItem'))== true ? JSON.parse(sessionStorage.getItem('cartItem')).length : 0
     this.savedGameNumber = Boolean(sessionStorage.getItem('savedItem'))== true ?JSON.parse(sessionStorage.getItem('savedItem')).length : 0
-    console.log(this.inCartNumber, this.savedGameNumber)
+    //console.log(this.inCartNumber, this.savedGameNumber)
   }
 
-  getUser(){
-    this.userLoginLogout = Boolean(sessionStorage.getItem('currentUser'))? "Logout" : "Login"
+  logout(){
+    this.loginService.logoutUser()
   }
+
+  
 
 
 }

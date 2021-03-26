@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { User } from '../models/user.model';
 import { DEALSHARK_URL } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class LoginService {
   }
 
 
-  constructor (private http: HttpClient) { }
+  constructor (private http: HttpClient, private router: Router) { }
 
 
 
@@ -40,7 +41,14 @@ export class LoginService {
     }
   }
 
+  loggedIn(){
+    return !!sessionStorage.getItem('currentUser')
+  }
 
+  public logoutUser(){
+    sessionStorage.removeItem("currentUser")
+    this.router.navigate([""]);
+  }
 
   }
 
