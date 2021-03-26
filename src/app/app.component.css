@@ -1,7 +1,7 @@
 
 .main-content{
     /* so that footer always at the bottom */
-    min-height: 80vh;
+    min-height: 90vh;
     padding-bottom: 20px;
     padding-top:10px;
 }
@@ -9,7 +9,7 @@
     min-height: 5vh;
 }
 .footer{
-    min-height: 15vh;
+    min-height: 10vh;
     padding-top: 20px;
     padding-bottom: 20px;
     display: block;
