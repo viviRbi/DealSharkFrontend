@@ -58,8 +58,10 @@ export class GameDetailComponent implements OnInit, OnDestroy {
           inCart.push(parseGames[i])
         }
       }
-    } 
+    }
+    console.log(inCart)
     sessionStorage.setItem(sessionName, JSON.stringify(inCart))
+
   }
 
   getGameById(){
