@@ -1,5 +1,5 @@
 
-import { Component, OnInit, DoCheck, Input, Output } from '@angular/core';
+import { Component, OnInit, DoCheck, Input } from '@angular/core';
 import { IGameInfo } from 'src/app/models/gameModel';
 import { LoginService } from 'src/app/services/login.service';
 

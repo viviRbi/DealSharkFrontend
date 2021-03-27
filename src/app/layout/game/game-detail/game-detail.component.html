@@ -1,9 +1,63 @@
 
 <div *ngIf="deal">
-    <p>game-detail works! </p> <button (click)="passSaveGame()">Save</button> <button (click)="passCartGame()">Cart</button>
+    <!--<button (click)="passSaveGame()">Save</button> <button (click)="passCartGame()">Cart</button> -->
 
-    <p>{{deal.name}}</p>
+    <!--<p>{{deal.name}}</p>
     <p>release {{deal.releaseDate}}</p>
     <p>sale price {{deal.salePrice}}</p>
-    <p>metacritic {{deal.metacriticScore}}</p>
+    <p>metacritic {{deal.metacriticScore}}</p>-->
+
+    
+        <div class="game-holder container border-radius-small row">
+            <section class="col-sm-4 col-12" >
+                <div class="game-thumb border-radius-small" [style.background-image]="'url('+deal.thumb+')'"></div>
+            </section>
+
+            <section class="col-sm-8 col-12 detail-info">
+                <h1 class="game-detail-title text-red text-center"><strong>{{deal.name}}</strong></h1>
+                <div class="row">
+                    <article class="col-sm-6 col-12">
+                        <p *ngIf="deal.publisher != 'N/A'">Publisher: <strong>{{deal.name}}</strong></p>
+                        <p *ngIf="deal.publisher == 'N/A'">Publisher: <strong>Unknown</strong></p>
+                    </article>
+                    <article class="col-sm-6 col-12">
+                        <p>Release Date: {{deal.releaseDate | date}}</p>
+                    </article>
+                    <article class="col-sm-6 col-12"><p>MetaCritic Score: {{deal.metacriticScore}}%</p></article>
+                    <article class="col-sm-6 col-12"><p>Steam Rating: {{deal.steamRatingPercent}}% ({{deal.steamRatingCount}} vote)</p></article>
+                    <article class="col-sm-6 col-12">
+                        <h5 class="d-inline-block"> Price: </h5>&nbsp;&nbsp;
+                        <h3 class="text-red d-inline-block">
+                            <strong>${{deal.salePrice}} </strong>
+                        </h3>&nbsp;&nbsp;
+                        <del>${{deal.retailPrice}}</del>
+                    </article>
+                </div>
+                <hr>
+                <div class="row">
+                    <article class="col-sm-6 col-12">
+                        <button (click)="passSaveGame()" class="btn bg-red text-light form-control btn-red">Save Game</button>
+                    </article>
+                    <article class="col-sm-6 col-12">
+                        <button (click)="passCartGame()" class="btn bg-red text-light form-control btn-red">Add To Cart</button>
+                    </article>
+                </div>
+                
+            </section>
+        </div>
 </div>
+
+<section class="bg-dark row">
+    <div class="col-4 img-holder">        
+        <img class=" banner border-radius-small pad-small pointer" routerLink="/game/sortByMetaCritic" src = "../../../../../../assets/Hob.jpg">
+        <p class="bg-black text-light label">Sort by meta scritic</p>
+    </div> 
+    <div class="col-4 img-holder">
+        <img class="banner border-radius-small pad-small pointer" routerLink="/game/salePrice" src = "../../../../../../assets/wargame.jpg">
+        <p class="bg-black text-light label">Sort by sale price</p>
+    </div> 
+    <div class="col-4 img-holder">
+        <img class="banner border-radius-small pad-small pointer" routerLink="/game/sortByTitle" src = "../../../../../../assets/Unravel.jpg">
+        <p class="bg-black text-light label">Sort by title</p>
+    </div> 
+</section>

@@ -6,11 +6,15 @@
 .border-radius-small {border-radius: 10px;}
 .pad-small {padding: 10px}
 .bg-dark {background: rgb(29, 28, 28)}
-.bg-red {background: rgb(109, 11, 11);}
+.bg-red {background: rgb(109, 11, 11)}
+.text-red {color:rgb(179, 29, 29)}
 .pointer {cursor: pointer}
 .border-light {border: 1px solid white}
 .float-right {float: right;}
 .float-clear{clear: both;}
+.strike{ text-decoration: line-through;}
+.relative{position:relative}
+.btn-red:hover{background: rgb(179, 29, 29);}
 .text-right{
     text-align: right;
 }

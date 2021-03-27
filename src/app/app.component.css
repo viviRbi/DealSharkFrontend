@@ -1,15 +1,15 @@
 
 .main-content{
     /* so that footer always at the bottom */
-    min-height: 90vh;
+    min-height: 89vh;
     padding-bottom: 20px;
     padding-top:10px;
 }
 .dealshark-nav{
-    min-height: 5vh;
+    height: 5vh;
 }
 .footer{
-    min-height: 10vh;
+    height: 5vh;
     padding-top: 20px;
     padding-bottom: 20px;
     display: block;
