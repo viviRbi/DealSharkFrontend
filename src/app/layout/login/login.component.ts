@@ -33,10 +33,12 @@ export class LoginComponent  {
         this.message= "Incorrect username or password"
       }else {
         // correct username and password
-        console.log("Correct username/password. Here's the info for the user who logged in: " + JSON.stringify(this.user));
+        
         // save to session
-        sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+        
         this.user = data
+        sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+        console.log("Correct username/password. Here's the info for the user who logged in: " + this.user);
         this.message= "Successfully submited"
       }
     })

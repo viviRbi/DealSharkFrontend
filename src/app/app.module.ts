@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './layout/checkout/checkout.component';
 import { RegisterComponent } from './layout/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -21,7 +22,7 @@ import { LoginComponent } from './layout/login/login.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-
+    CheckoutComponent
   ],
 
   imports: [
