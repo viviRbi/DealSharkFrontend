@@ -1,23 +1,27 @@
 
-import { Component, OnInit, DoCheck, Input } from '@angular/core';
-import { IGameInfo } from 'src/app/models/gameModel';
-import { LoginService } from 'src/app/services/login.service';
-import { ParentChildCommuteService } from 'src/app/services/parent-child-commute.service';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit, DoCheck, Input, OnDestroy } from '@angular/core';
+import { IGameInfo } from '../../models/gameModel';
+import { LoginService } from '../../services/login.service';
+import { ParentChildCommuteService } from "../../services/parent-child-commute.service";
+import { environment } from '../../../environments/environment';
+import { UserService } from 'src/app/services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit , OnDestroy{
 
-  //addToCart? : IGameInfo[] =[]
-  //addToSave? : IGameInfo[] =[]
   inCartNumber?: number =0
   savedGameNumber?: number =0
 
-  constructor(public loginService: LoginService, private parentChildCommute : ParentChildCommuteService) {
+  savedGameId?: string
+
+  sub: Subscription;
+
+  constructor(public loginService: LoginService, private parentChildCommute : ParentChildCommuteService, private userService: UserService) {
 
    }
 
@@ -37,13 +41,22 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  ngOnDestroy(){
+    this.sub.unsubscribe()
+  }
+
   checkSession(){
-   this.inCartNumber = Boolean(sessionStorage.getItem('cartItem'))== true ? JSON.parse(sessionStorage.getItem('cartItem')).length : 0
-   this.savedGameNumber = Boolean(sessionStorage.getItem('savedItem'))== true ?JSON.parse(sessionStorage.getItem('savedItem')).length : 0
+    Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?console.log("save session",JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length) : null
+   this.inCartNumber = Boolean(sessionStorage.getItem(environment.sessionNameForCart))== true ? JSON.parse(sessionStorage.getItem(environment.sessionNameForCart)).length : 0
+   this.savedGameNumber = Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length : 0
   }
 
 
   logout(){
+    if (Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true){
+      this.sub = this.userService.updateSavedGame().subscribe(data => {this.savedGameId = data; console.log("saving these id", data) })
+      sessionStorage.removeItem(environment.sessionNameForSave)
+    }
     this.loginService.logoutUser()
   }
 
