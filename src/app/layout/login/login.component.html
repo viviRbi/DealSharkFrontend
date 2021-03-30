@@ -1,30 +1,32 @@
 
 
-	<div style="color: teal" class="jumbotron jumbotron-fluid">
 
-		<div class="container">
-			<h1 class="display-4">User Login</h1>
-			<p class="lead">Welcome! Please login below with your username and
-				password</p>
-		</div>
-	</div>
-
-	<div class="container-fluid">
-
+	<div class="container bg-light login-pannel border-radius-small">
+		<h2 class="text-center"> Login</h2>
 <!--If you declare a function and u doesn't have it in the ts file (in the export class), it'll throw an error -->
-		<form #loginForm="ngForm" name="loginForm" (ngSubmit)="loginUserFromService()">
+		<form #loginForm="ngForm" name="loginForm" (ngSubmit)="loginUserFromService()"  class="form-group login-form">
 
-			<input [(ngModel)]="userLogin.username" name="username" required minlength="3">
+			<label>Username</label>
+			<input [(ngModel)]="userLogin.username" name="username" required minlength="3" class="form-control">
+			<em *ngIf="loginForm.controls.username?.invalid && (loginForm.controls.username?.touched || mouseoverLogin)">Required</em>
 
-			<em *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.touched">Required</em>
-			<input [(ngModel)]="userLogin.password" name="password" required minlength="3">
+			<label>Password</label>
+			<input [(ngModel)]="userLogin.password" name="password" required minlength="3" class="form-control">
+			<em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched || mouseoverLogin)">Required</em>
 
-			<input type="submit" value ="Submit"  [disabled] = "!loginForm.form.valid"/>
+			<section class="submit-register">
+				<p routerLink = "/register" class=" pointer float-left text-primary">
+					If you don't have an account. Please register
+				</p>
+				<span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
+					<input type="submit" value ="Submit"  [disabled] = "!loginForm.form.valid" class="btn bg-black text-light submit-btn float-right"/>
+				</span>
+				
+			</section>
+			<div class="float-clear"></div>
 
 			<!-- User incorrect login -->
-			<div *ngIf="message">{{message}}</div>
-			<div routerLink = "/register" class="text-light pointer">Register</div>
+			<div *ngIf="message text-danger">{{message}}</div>
 		</form>
-
 	</div>
 

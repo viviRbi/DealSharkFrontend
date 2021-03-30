@@ -20,8 +20,9 @@ export class LoginComponent  {
 
   userLogin?: IUserLoginTemplate = {username:"",password:""}
   message: String
-
   user?: User
+  // Use for template form to catch mouse over and mouse leave event to display form error
+  mouseoverLogin : boolean
    
   public loginUserFromService(): void {
 
@@ -32,9 +33,6 @@ export class LoginComponent  {
         console.log("Your username is incorrect")
         this.message= "Incorrect username or password"
       }else {
-        // correct username and password
-        
-        // save to session
         
         this.user = data
         sessionStorage.setItem('currentUser', JSON.stringify(this.user));

@@ -1,47 +1,49 @@
 
-<div>
-    <div class="panel-heading">
-        <span class="label label-default label-center">{{ title }}</span>
-    </div>
 
-    <div class="panel-body">
-        <div class="list-group">
-            <form class="list-group-item" #registerForm="ngForm" name="registerForm" (ngSubmit)="registerUserFromService()" >
 
-                <div class="form-group">
-                    <!--  here i want to take input from the user, and change the property of the hero object in my ts file -->
-                    <input [(ngModel)]="user.username" placeholder="username" name="username" class="form-control" required minlength="3">
-	                <em *ngIf="registerForm.controls.username?.invalid && registerForm.controls.username?.touched">Must be more than 2 characters</em>
-                    <br />
-                    <br />
-                    <input [(ngModel)]="user.password" placeholder="password" name="password" class="form-control" required minlength="3">
-	                <em *ngIf="registerForm.controls.password?.invalid && registerForm.controls.password?.touched">Must be more than 2 characters</em>
-                    <br />
-                    <br />
-                    <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" required minlength="1">
-	                <em *ngIf="registerForm.controls.firstName?.invalid && registerForm.controls.firstName?.touched">Must be more than 0 characters</em>
-                    <br />
-                    <br />
-                    <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" required minlength="1">
-	                <em *ngIf="registerForm.controls.lastName?.invalid && registerForm.controls.lastName?.touched">Must be more than 0 characters</em>
-                    <br />
-                    <br />
-                     <!-- test regex https://www.beautifyconverter.com/regex-tester.php -->
-                    <input [(ngModel)]="user.balance" placeholder="Balance" name="balance" class="form-control" #balance="ngModel" required minlength="3" pattern="^([1-9][0-9]{2,})+(.[0-9]{1,2})?$">
-                    <em *ngIf="registerForm.controls.balance?.invalid && registerForm.controls.balance?.touched">Balance must be greater than 100 with maximum 2 decimal</em>
-                    <br />
-                </div>
+<div class="container bg-light register-pannel border-radius-small">
 
-                <div>
-                    <button class="btn btn-primary btn-center" [disabled] = "!registerForm.form.valid">Register User</button>
-                </div>
+    <h2 class="text-center"> Register </h2>
 
-                <div *ngIf="message" class="text-success">
-                    <p >{{message}}</p>
-                </div>
-            
-            </form>
-        </div>
-
-    </div>
+    <form #registerForm="ngForm" name="registerForm" (ngSubmit)="registerUserFromService()" class="form-group" >
+        
+        <label>Username</label>
+        <input [(ngModel)]="user.username"  name="username" class="form-control" required minlength="3">
+        <em *ngIf="registerForm.controls.username?.invalid && (registerForm.controls.username?.touched  || mouseoverRegister)">Must be more than 3 characters</em>
+        
+        <label>Password</label>
+        <input [(ngModel)]="user.password"  type="password" name="password" class="form-control" required minlength="3">
+        <em *ngIf="registerForm.controls.password?.invalid && (registerForm.controls.password?.touched  || mouseoverRegister)">Must be more than 3 characters</em>
+        
+        <label>First Name</label>
+        <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" required>
+        <em *ngIf="registerForm.controls.firstName?.invalid && (registerForm.controls.firstName?.touched || mouseoverRegister)">Must not be empty</em>
+        
+        <label>Last Name</label>
+        <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" required>
+        <em *ngIf="registerForm.controls.lastName?.invalid && (registerForm.controls.lastName?.touched  || mouseoverRegister)">Must not be empty</em>
+        
+        
+        <!-- test regex https://www.beautifyconverter.com/regex-tester.php for the regex pattern requirement-->
+        <label>Balance</label>
+        <input [(ngModel)]="user.balance" placeholder="Balance" name="balance" class="form-control" #balance="ngModel" required minlength="3" pattern="^([1-9][0-9]{2,})+(.[0-9]{1,2})?$">
+        <em *ngIf="registerForm.controls.balance?.invalid && (registerForm.controls.balance?.touched  || mouseoverRegister)">Balance must be greater than 100 with maximum 2 decimal</em>
+        
+        <section class="submit-message">
+            <span (mouseenter)="mouseoverRegister=true" (mouseleave)="mouseoverRegister=false">
+                <button class="btn bg-black text-light btn-center float-right" [disabled] = "!registerForm.form.valid">Register User</button>
+            </span>
+    
+            <div *ngIf="message" class="text-success float-left" routerLink = "/login">
+                <p>{{message}}</p>
+            </div>
+            <div *ngIf="errMessage" class="text-danger float-left">
+                <p>{{errMessage}}</p>
+            </div>
+            <div class="float-clear"></div>
+        </section>
+        
+    </form>
 </div>
+
+
