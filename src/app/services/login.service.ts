@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { User } from '../models/user.model';
 import { DEALSHARK_URL } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +20,13 @@ export class LoginService {
   }
 
 
-  constructor (private http: HttpClient) { }
+  constructor (private http: HttpClient, private router: Router) { }
 
 
 
-  public loginUser(login: loginTemplate): Observable<loginTemplate> {
-    console.log("Here it is again: " + login);
-    return this.http.post<loginTemplate>(`${DEALSHARK_URL}authenticateUser`, login, this.httpOptions) .pipe(
+  public loginUser(login: loginTemplate): Observable<User> {
+    console.log("Here it is again: " + login.username);
+    return this.http.post<User>(`${DEALSHARK_URL}authenticateUser`, login, this.httpOptions) .pipe(
       catchError(this.handleError<User>('loginUser', undefined))
     )
   }
@@ -40,7 +41,14 @@ export class LoginService {
     }
   }
 
+  loggedIn(){
+    return !!sessionStorage.getItem('currentUser')
+  }
 
+  public logoutUser(){
+    sessionStorage.removeItem("currentUser")
+    this.router.navigate([""]);
+  }
 
   }
 

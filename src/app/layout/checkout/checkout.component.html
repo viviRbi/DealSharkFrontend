@@ -1,1 +1,23 @@
-<p>checkout works!</p>
+
+
+     <h2 class = "text-center text-light body-top-down-wrapper-margin">Games in your cart</h2>
+
+  <table class="table table-dark body-top-down-wrapper-margin border-radius-small" *ngIf="orderArray">
+    <thead>
+      <tr>
+        <th>Game Title</th>
+        <th>Regular Price</th>
+        <th>Your Price</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let object of orderArray">
+    <tr>
+        <td>{{object.name}}</td>
+        <td>${{object.retailPrice}}</td>
+        <td>${{object.salePrice}}</td>
+      </tr>
+    </tbody>
+</table>
+     
+<button (click)="purchaseGames()" class="btn btn-outline-light float-right">Purchase Games</button>
+<div class="float-clear"></div>

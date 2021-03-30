@@ -1,0 +1,8 @@
+.footer{
+    height: 100%;
+    padding:1vh 5px;
+}
+.footer small{
+    margin:auto;
+    display: inline-block;
+}

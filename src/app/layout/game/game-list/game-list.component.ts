@@ -18,6 +18,7 @@ export class GameListComponent implements OnInit, OnDestroy {
   gameDealSorted: IGameDeal[];
   sub: Subscription;
   sortByParam: string;
+  sortNumber: number = 1;
   @Input('searchTerm') searchTerm: ISearchGame;
 
   constructor(private gameService: GameService, private route: ActivatedRoute, private location: Location) { }
@@ -76,31 +77,56 @@ export class GameListComponent implements OnInit, OnDestroy {
     
     switch(sortBy){
       case 'sortByTitle':
-        this.gameDealSorted=this.gameDeal.sort(this.gameService.sortOn("title", 1)) // Positive 1 is order by asc, Negative -1 is order by desc
-        this.sortByParam = "Sort By Title"
-        console.log("title", this.gameDealSorted)
+        this.sortByTitle()
         break;
       case 'sortByMetaCritic':
-        this.gameDealSorted=this.gameDeal.sort(this.gameService.sortOn("", -1))
-        this.sortByParam = "Sort By Metacritic"
-        console.log("meta critic", this.gameDealSorted)
+        this.sortByMetaCritic()
         break;
       case 'sortByRecent':
-        this.gameDealSorted=this.gameDeal.sort(this.gameService.sortOn("releaseDate", -1))
-        this.sortByParam = "Sort By Recent"
-        console.log("release day", this.gameDealSorted)
+        this.sortByRecent()
         break;
-      case 'filter':
+      case 'sortBySalePrice':
+        this.sortBySalePrice()
         break;
       // sort by deal or other wrong url
       default:
-        this.sortByParam = "Sort By Deal"
         this.gameDealSorted = this.gameDeal
+        this.sortByParam = "Sort By Deal"
     }
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  convertTimeStampToDate(timeStamp){
+    return new Date(timeStamp);
+  }
+
+  sortByTitle(){
+    this.gameDealSorted=this.gameDeal.sort(this.gameService.sortOn("title", this.sortNumber)) // Positive 1 is order by asc, Negative -1 is order by desc
+    this.sortByParam = "Sort By Title"
+    this.sortNumber = this.sortNumber * -1
+  }
+  sortByMetaCritic(){
+    this.gameDealSorted=this.gameDeal.sort(this.gameService.sortOn("metacriticScore", this.sortNumber * -1))
+    this.sortByParam = "Sort By Metacritic"
+    this.sortNumber = this.sortNumber * -1
+  }
+  sortByRecent(){
+    this.gameDealSorted=this.gameDeal.sort(this.gameService.sortOn("releaseDate", this.sortNumber * -1))
+    this.sortByParam = "Sort By Recent"
+    this.sortNumber = this.sortNumber * -1
+  }
+  sortBySalePrice(){
+    this.gameDealSorted=this.gameDeal.sort(this.gameService.sortOn("salePrice", this.sortNumber))
+    this.sortByParam = "Sort By Sale Price"
+    this.sortNumber = this.sortNumber * -1
+  }
+  sortByDeal(){
+    this.sortByParam = "Sort By Deal"
+    this.gameDealSorted = this.gameDeal.sort(this.gameService.sortOn("dealRating", this.sortNumber))
+    this.sortNumber = this.sortNumber * -1
   }
 
 }

@@ -1,28 +1,30 @@
-<p>welcome works!</p>
 
-<div class="bg-secondary">
-    Carousel
-</div>
+<main class="welcome-page">
+    
+    <section class="">
+        <div class="bg-white banner border-radius-small col-12 pad-small pointer" routerLink="/game"> </div>
+    </section>
 
-<hr>
+    <section class= "welcome-text bg-white  pad-small border-radius-small" >
+        <h2 class="text-danger headline">Welcome to DealShark! </h2>
+    </section>
 
-<div class="bg-secondary col-6" routerLink="/game">
-    Sort by deal
-</div>
-<hr>
+    <section class=" sort-wrapper1">
+        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game/salePrice" >
+            <span class="bg-black text-light label">Sort by sale price</span>
+        </div>       
+        <div class="bg-secondary border-radius-small sort pad-small " routerLink="/game/sortByRecent" >
+            <span class="bg-black text-light label">Sort by recent</span>
+        </div>
+    </section>
 
-<div class="bg-secondary col-6" routerLink="/game/sortByRecent">
-    Sort by recent
-</div>
+    <section class=" sort-wrapper2">
+        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game/sortByMetaCritic" >
+            <span class="bg-black text-light label">Sort by metacritic</span>
+        </div>
+        <div class="bg-secondary border-radius-small sort pad-small" routerLink="/game/sortByTitle" >
+            <span class="bg-black text-light label">Sort by title</span>
+        </div>
+    </section>
 
-<hr>
-
-<div class="bg-secondary col-6" routerLink="/game/sortByMetaCritic">
-    Sort by metacritic
-</div>
-
-<hr>
-
-<div class="bg-secondary col-6" routerLink="/game/sortByTitle">
-    Sort by title
-</div>
+</main>

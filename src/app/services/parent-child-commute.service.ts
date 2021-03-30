@@ -6,6 +6,7 @@ import { IGameInfo } from '../models/gameModel';
   providedIn: 'root'
 })
 
+// Actually it's Parent-child-sibling commute
 export class ParentChildCommuteService {
 
   // Subject is both an Observable(subcribe) and Observer (next, error, complete method)

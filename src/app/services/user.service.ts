@@ -13,13 +13,14 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type ' : 'application/json'})
+    headers: new HttpHeaders({ 'Content-Type ' : 'application/json', 'Access-Control-Allow-Origin':'*'})
   }
 
 
   constructor(private http: HttpClient) { }
 
   public registerUser(user : User): Observable<ClientMessage> {
+   
     return this.http.post<ClientMessage>(`${DEALSHARK_URL}register`, user)
     .pipe(catchError(this.handleError<ClientMessage>('register User', undefined)));
   }

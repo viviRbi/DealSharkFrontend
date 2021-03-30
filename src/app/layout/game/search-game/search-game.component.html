@@ -1,15 +1,57 @@
-<p>search-game works!</p>
-<div>
-    <form>
-        <input placeholder="Title" name="searchTerm.title" [(ngModel)] = "searchTerm.title"> 
-        <!--input placeholder="Title" name="title" [(ngModel)] = "title"> {{title}} -->
+
+
+    
+        <!--<input placeholder="Title" name="searchTerm.title" [(ngModel)] = "searchTerm.title"> 
+        
         Highest price <input placeholder="Less than" name="priceLessThan" [(ngModel)] = "searchTerm.priceMoreThan"> 
          
         Lowest price <input placeholder="more than" name="priceMoreThan" [(ngModel)] = "searchTerm.priceLessThan">
         Recent? <input type="checkbox" name="recent" [(ngModel)] = "searchTerm.recent">
-        On sale? <input type="checkbox" name="onSale" [(ngModel)] = "searchTerm.onSale"> 
-    </form>
-</div>
+        On sale? <input type="checkbox" name="onSale" [(ngModel)] = "searchTerm.onSale">  -->
 
-<br>
+        
+
+    <form class="row search-box border-radius-small border-light pad-small">
+
+        <section class="col-sm-8">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-light">Title</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Type any word" name="searchTerm.title" [(ngModel)] = "searchTerm.title">
+                </div>
+            </div>
+            <div class="form-group form-check-inline search-check-wrapper">
+                
+                <article class="col-sm-6 row form-check">
+                    <input class=" form-check-input text-light" type="checkbox" name="recent" [(ngModel)] = "searchTerm.recent">
+                    <label class="form-check-label text-light">Sort by Recent Release</label>
+                </article>
+
+                
+                <article class="col-sm-6 row form-check">   
+                    <input class="form-check-input text-light" type="checkbox" name="onSale" [(ngModel)] = "searchTerm.onSale">               
+                    <label class="form-check-label text-light">Check only On Sale games</label> 
+                </article>
+            </div>
+        </section>
+
+        <section class="col-sm-4">
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-4 col-form-label text-light">Highest Price</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="Less than" name="priceMoreThan" [(ngModel)] = "searchTerm.priceLessThan">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-4 col-form-label text-light" >Lowest Price</label>
+                <div class="col-sm-6">
+                    <input class="form-control" placeholder="More than" name="priceMoreThan" [(ngModel)] = "searchTerm.priceMoreThan">
+                </div>
+            </div>
+        </section>
+
+    </form>
+
+    <!-- Game List Component -->
 <app-game-list [searchTerm]="searchTerm"></app-game-list>
+    

@@ -3,6 +3,8 @@ import { LoginService } from './../../services/login.service';
 import { IUserLoginTemplate } from './../../models/userLogin';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,59 +15,30 @@ import { User } from 'src/app/models/user.model';
 export class LoginComponent  {
   
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,  private router: Router, private route: ActivatedRoute) { }
 
   public clientMessage: ClientMessage = new ClientMessage('');
 
 
- 
-
-  userLogin: IUserLoginTemplate = {username:"",password:""}
+  userLogin?: IUserLoginTemplate = {username:"",password:""}
+  errMessage: String
+  user?: User
+  mouseoverLogin : boolean // Use for template form to catch mouse over and mouse leave event to display form error
    
-  public registerUserFromService(): void {
+  public loginUserFromService(): void {
 
-    this.loginService.loginUser(this.userLogin).subscribe(data => this.userLogin = data, 
-      error => this.clientMessage.message = 'SOMETHING WENT WRONG!');
-
-      console.log("Here's the userLogin object: " + this.userLogin);
+    this.loginService.loginUser(this.userLogin).subscribe(data =>{
+        // Wrong username and password case
+      if (data == null || data.username == ""){
+        this.errMessage= "Incorrect username or password"
+      }else { 
+        this.user = data
+        sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+        console.log(this.user)
+        this.router.navigateByUrl(HttpParams['return']);
+      }
+    })
   }
 
 
-  
-
-
-
-  // Constructor Injection
-
-
-  // For databinding
-  /* ..... 
-
-  console.log("send login triggered");
-
-    let uName = document.getElementById('uName').value;
-
-    let pWord = document.getElementById('pWord').value;
-
-    console.log(`Username: ${uName}`);
-    console.log("testing");
-    console.log(`Password: ${pWord}`);
-
-    let loginTemplate = {
-        username: uName,
-        password: pWord
-    }
-*/
-
-  // Client message to the user
-
-  /*
-  public clientMessage: ClientMessage = new ClientMessage('');
-
-  public loginUserFromService(loginTemplate): void {
-
-    this.userService.loginUser(this.hero).subscribe(data => this.clientMessage = data, 
-      
-      error => this.clientMessage.message = 'SOMETHING WENT WRONG!');
-      */
-  }
+}

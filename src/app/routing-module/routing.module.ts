@@ -2,9 +2,9 @@ import { UserModule } from './../layout/user/user.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-
 import { WelcomeComponent } from '../layout/welcome/welcome.component';
 import { NotFoundPageComponent } from '../layout/not-found-page/not-found-page.component';
+import { Browser } from 'selenium-webdriver';
 
 // This is for global route
 
@@ -23,7 +23,8 @@ const routes: Routes = [
   {path:'', redirectTo: '/welcome', pathMatch: 'full'},
   {path:'**', component: NotFoundPageComponent},             // ** = path not found
 
-  { path: 'register', loadChildren: () => import('../layout/register/register.module').then(m=>m.RegisterModule)}
+  //{ path: 'register', loadChildren: () => import('../layout/register/register.module').then(m=>m.AuthModule)},
+  {path:'', redirectTo: '/welcome', pathMatch: 'full'}
 ];
 
 @NgModule({
