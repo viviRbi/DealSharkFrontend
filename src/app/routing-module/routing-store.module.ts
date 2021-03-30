@@ -5,6 +5,7 @@ import { CheckoutComponent } from '../layout/checkout/checkout.component';
 
 const routes: Routes = [
   {path: 'checkout', component : CheckoutComponent}
+
 ]
 
 @NgModule({

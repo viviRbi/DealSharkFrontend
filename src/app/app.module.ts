@@ -1,4 +1,5 @@
 
+
 import { RegisterComponent } from './layout/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { WelcomeComponent } from './layout/welcome/welcome.component';
 import { LoginComponent } from './layout/login/login.component';
 import { CheckoutComponent } from './layout/checkout/checkout.component';
+import { ProfileComponent } from './layout/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { CheckoutComponent } from './layout/checkout/checkout.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    CheckoutComponent,
+    ProfileComponent,
+    CheckoutComponent
   ],
 
   imports: [
