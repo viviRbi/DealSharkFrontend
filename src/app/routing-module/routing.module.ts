@@ -23,7 +23,8 @@ const routes: Routes = [
   {path:'', redirectTo: '/welcome', pathMatch: 'full'},
   {path:'**', component: NotFoundPageComponent},             // ** = path not found
 
-  { path: 'register', loadChildren: () => import('../layout/register/register.module').then(m=>m.RegisterModule)}
+  //{ path: 'register', loadChildren: () => import('../layout/register/register.module').then(m=>m.AuthModule)},
+  {path:'', redirectTo: '/welcome', pathMatch: 'full'}
 ];
 
 @NgModule({

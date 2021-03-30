@@ -6,7 +6,8 @@ export interface User {
     firstName?: string;
     lastName?: string;
     balance?: number;
-
+    savedGame?: string
+    purchasedGame?: string
 }
 
 

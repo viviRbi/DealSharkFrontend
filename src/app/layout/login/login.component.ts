@@ -34,6 +34,7 @@ export class LoginComponent  {
       }else { 
         this.user = data
         sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+        console.log(this.user)
         this.router.navigateByUrl(HttpParams['return']);
       }
     })

@@ -24,3 +24,7 @@
 .text-center{
     text-align: center;
 }
+.body-top-down-wrapper-margin{
+    margin-top: 60px;
+    margin-bottom: 80px;
+}

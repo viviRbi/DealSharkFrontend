@@ -26,6 +26,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getGameById()
+    //this.parentChildCommute.changeSaveEmitted$.subscribe(data =>console.log(data))
   }
 
   // Avoid memory leak
@@ -36,19 +37,21 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   // Pass game obj to app compnenent to get save/ in cart quantity showed on navbar in DoCheck life cycle hook
   // doesn't actually use the info. Only pass to activate DoCheck. But can be used for future purpose as it's an observable and usable  
   passSaveGame(){
-    this.parentChildCommute.emitSaveChange(this.deal)
-    this.addToSession(environment.sessionNameForSave)
+    
+    // Maybe Remove later if successfully retrieved and update saved game and able to connect the dot
+    this.addToSession(environment.sessionNameForSave, "save")
   }
 
   passCartGame(){
-    this.parentChildCommute.emitCartChange(this.deal)
-    this.addToSession(environment.sessionNameForCart)
+    
+    // Maybe Remove later if successfully retrieved and update saved game and able to connect them
+    this.addToSession(environment.sessionNameForCart, "cart")
     
   }
   // --- End pass game obj to app compnenent to get save/ in cart quantity showed on navbar in DoCheck
 
   // Add save/in cart game to session storage
-  addToSession(sessionName): void{
+  addToSession(sessionName, type): void{
     let inCart = []
     inCart.push(this.deal)
     if (Boolean(sessionStorage.getItem(sessionName)) == true){
@@ -60,8 +63,9 @@ export class GameDetailComponent implements OnInit, OnDestroy {
       }
     }
     console.log(inCart)
+    if (type == 'save') this.parentChildCommute.emitSaveChange(inCart.length)
+    else if (type === "cart")  this.parentChildCommute.emitCartChange(inCart.length)
     sessionStorage.setItem(sessionName, JSON.stringify(inCart))
-
   }
 
   getGameById(){

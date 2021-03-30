@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
-</head>
-<body>
 
-     <h2 class="title" >Games in your cart</h2>
 
-<table class="table table-dark">
+     <h2 class = "text-center text-light body-top-down-wrapper-margin">Games in your cart</h2>
+
+  <table class="table table-dark body-top-down-wrapper-margin border-radius-small" *ngIf="orderArray">
     <thead>
       <tr>
         <th>Game Title</th>
@@ -18,7 +10,7 @@
         <th>Your Price</th>
       </tr>
     </thead>
-    <tbody *ngFor="let object of session">
+    <tbody *ngFor="let object of orderArray">
     <tr>
         <td>{{object.name}}</td>
         <td>${{object.retailPrice}}</td>
@@ -27,7 +19,5 @@
     </tbody>
 </table>
      
-<button (click)="purchaseGames()">Purchase Games</button>
-
-</body>
-</html>
+<button (click)="purchaseGames()" class="btn btn-outline-light float-right">Purchase Games</button>
+<div class="float-clear"></div>
