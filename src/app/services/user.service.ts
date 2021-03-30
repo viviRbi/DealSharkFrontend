@@ -25,6 +25,7 @@ export class UserService {
     .pipe(catchError(this.handleError<ClientMessage>('register User', undefined)));
   }
 
+
   public updateSavedGame() : Observable<string>{
   
     let savedGameString = this.getDealIdFromSavedGame()
@@ -49,6 +50,12 @@ export class UserService {
     });
     return savedGameString.slice(0,-1)
   }
+
+  public updateUser(user: User): Observable<ClientMessage> {
+    return this.http.post<ClientMessage>(`${DEALSHARK_URL}update`, user)
+    .pipe(catchError(this.handleError<ClientMessage>('update User', undefined)));
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T){
     return (error: any): Observable<T> => {
