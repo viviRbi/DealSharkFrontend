@@ -42,9 +42,9 @@ export class RegisterComponent implements OnInit{
       this.clientMessage = data
       if (data != null){
         console.log(data)
-        this.message = "You have successfully create an account. Please log in"
+        this.message = "You have successfully create an account. Please click here to log in"
       }else 
-        this.errMessage = "Something had gone wrong at the backend. Please report"
+        this.errMessage = "Something had gone wrong at the backend or you have been disconnect to our server"
     }, error => this.clientMessage.message = 'SOMETHING WENT WRONG IN REGISTER.TS')
   }
 

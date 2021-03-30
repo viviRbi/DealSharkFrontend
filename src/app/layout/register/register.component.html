@@ -34,7 +34,7 @@
                 <button class="btn bg-black text-light btn-center float-right" [disabled] = "!registerForm.form.valid">Register User</button>
             </span>
     
-            <div *ngIf="message" class="text-success float-left" routerLink = "/login">
+            <div *ngIf="message" class="text-primary float-left btn-link pointer" routerLink = "/login">
                 <p>{{message}}</p>
             </div>
             <div *ngIf="errMessage" class="text-danger float-left">

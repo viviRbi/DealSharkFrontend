@@ -13,7 +13,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type ' : 'application/json'})
+    headers: new HttpHeaders({ 'Content-Type ' : 'application/json', 'Access-Control-Allow-Origin':'*'})
   }
 
 
