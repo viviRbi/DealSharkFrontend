@@ -6,6 +6,8 @@ import { Observable, of } from 'rxjs';
 import { User } from './../models/user.model';
 import { ClientMessage } from './../models/client-message.model';
 import { Injectable } from '@angular/core';
+import { order } from '../models/order';
+
 
 
 @Injectable({
@@ -33,8 +35,10 @@ export class CheckoutService {
 //   .pipe(catchError(this.handleError<ClientMessage>('register User', undefined)));
 // }
 
-public sendGamesArray(gamesArray: Array<Object>) {
-  return this.http.post<ClientMessage>(`${DEALSHARK_URL}newOwnedGames`, gamesArray)
+public sendGamesArray(newOwnedGames: order): Observable<ClientMessage> {
+
+  console.log("hitting sendGamesArray as well");
+  return this.http.post<ClientMessage>(`${DEALSHARK_URL}newOwnedGames`, newOwnedGames)
   .pipe(catchError(this.handleError<ClientMessage>('New Owned Games', undefined)));
 }
 
