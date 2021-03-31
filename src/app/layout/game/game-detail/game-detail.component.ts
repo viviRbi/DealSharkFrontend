@@ -53,6 +53,8 @@ export class GameDetailComponent implements OnInit, OnDestroy {
   // Add save/in cart game to session storage
   addToSession(sessionName, type): void{
     let inCart = []
+    let dealId = this.route.snapshot.paramMap.get('deal');
+    this.deal.dealId = dealId
     inCart.push(this.deal)
     if (Boolean(sessionStorage.getItem(sessionName)) == true){
       let parseGames = JSON.parse(sessionStorage.getItem(sessionName))

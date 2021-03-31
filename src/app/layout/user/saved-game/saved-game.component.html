@@ -1,30 +1,36 @@
 
 <h2 class = "text-center text-light body-top-down-wrapper-margin">Games in your cart</h2>
 
-<table class="table table-dark body-top-down-wrapper-margin border-radius-small" *ngIf="savedGames">
-    <thead>
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Publisher</th>
-        <th scope="col">Sale Price</th>
-        <th scope="col">Normal Price</th>
-        <th scope="col">MetaCritic</th>
-        <th scope="col">Release Day</th> 
-      </tr>
-    </thead>
-    <tbody *ngFor="let game of savedGames">
-      <tr>
-        {{saved | json}}
-        <td>{{game.name}}</td>
-        <td>{{game.publisher}}</td>
-        <td>{{game.salePrice}}</td>
-        <td>{{game.retailPrice}}</td>
-        <td>{{game.metacriticScore}}</td>
-        <td>{{game.releaseDate | date}}</td>
-      </tr>
-    </tbody>
-</table>
+<div *ngIf="savedGames">
+  <table class="table table-dark body-top-down-wrapper-margin border-radius-small" >
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Publisher</th>
+          <th scope="col">Sale Price</th>
+          <th scope="col">Normal Price</th>
+          <th scope="col">MetaCritic</th>
+          <th scope="col">Release Day</th> 
+        </tr>
+      </thead>
+      <tbody *ngFor="let game of savedGames">
+        <tr>
+          {{saved | json}}
+          <td>{{game.name}}</td>
+          <td>{{game.publisher}}</td>
+          <td>{{game.salePrice}}</td>
+          <td>{{game.retailPrice}}</td>
+          <td>{{game.metacriticScore}}</td>
+          <td>{{game.releaseDate | date}}</td>
+        </tr>
+      </tbody>
+  </table>
 
-<div *ngIf="! savedGames" class =" body-top-down-wrapper-margin bg-light border-radius-small">
-    <h3 class="text-light text-center">You haven't add any favourite</h3>
+  <section class="body-top-down-wrapper-margin bg-light border-radius-small pad-small pointer" (click)="clearSessionSavedGame()">
+    <p> Clear session storage for demontration purpose</p>
+  </section>
+</div>
+
+<div *ngIf="! savedGames" class =" body-top-down-wrapper-margin bg-light border-radius-small pad-small">
+    <h3 class="text-center pointer" routerLink="/game">You haven't add any favourite. Add some from out list</h3>
 </div>
