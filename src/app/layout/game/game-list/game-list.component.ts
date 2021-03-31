@@ -50,10 +50,10 @@ export class GameListComponent implements OnInit, OnDestroy {
       // create the query. 0 is keyword. 1 is value
       for (let i =0; i<inputArr.length; i++) {
         if (inputArr[i][0] == 'title' && inputArr[i][1].trim() != "")  queryUrl += `&title=${inputArr[i][1]}`
-        if (inputArr[i][0] == 'recent')  queryUrl += "&sortBy=recent&desc=1"
+        if (inputArr[i][0] == 'recent' && inputArr[i][1] == true)  queryUrl += "&sortBy=recent&desc=1"
         if (inputArr[i][0] == 'priceLessThan' && inputArr[i][1].trim() != "")  queryUrl += `&lowerPrice=${inputArr[i][1]}`
         if (inputArr[i][0] == 'priceMoreThan' && inputArr[i][1].trim() != "")  queryUrl += `&upperPrice=${inputArr[i][1]}`
-        if (inputArr[i][0] == 'onSale')  queryUrl += "&onSale=1"
+        if (inputArr[i][0] == 'onSale' && inputArr[i][1] == true)  queryUrl += "&onSale=1"
       }
       // add ? and delete & for the first keyword
       queryUrl = "?" + queryUrl.substring(1)
