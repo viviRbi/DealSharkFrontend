@@ -9,6 +9,7 @@
         <span class="btn text-light pointer" routerLink="/user/saved-game" *ngIf="loginService.loggedIn()">Favourite ({{savedGameNumber}})</span>
         <span class="btn text-light pointer" routerLink="/checkout"*ngIf="loginService.loggedIn()">Cart ({{inCartNumber}})</span>
 
+        <span class="btn text-light" routerLink="/register" *ngIf="!loginService.loggedIn()" >Register</span>
         <span class="btn text-light" routerLink="/login" *ngIf="!loginService.loggedIn()" >Login</span>
         <span class="btn text-light" (click)="logout()" *ngIf="loginService.loggedIn()">Logout</span>
         <!--<button>Favourite ({{savedGameNumber}})</button><button>Cart ({{inCartNumber}})</button>-->

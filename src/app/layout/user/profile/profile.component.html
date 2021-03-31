@@ -14,15 +14,15 @@
         <em *ngIf="updateForm.controls.password?.invalid && (updateForm.controls.password?.touched)">Must be more than 3 characters</em>
         
         <label>First Name</label>
-        <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" required>
+        <input [(ngModel)]="user.firstName" name="firstName" class="form-control" required>
         <em *ngIf="updateForm.controls.firstName?.invalid && (updateForm.controls.firstName?.touched)">Must not be empty</em>
         
         <label>Last Name</label>
-        <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" required>
+        <input [(ngModel)]="user.lastName" name="lastName" class="form-control" required>
         <em *ngIf="updateForm.controls.lastName?.invalid && (updateForm.controls.lastName?.touched)">Must not be empty</em>        
 
         <label>Balance</label>
-        <input [(ngModel)]="user.balance" placeholder="Balance" name="balance" class="form-control" #balance="ngModel" required minlength="3" pattern="^([1-9][0-9]{2,})+(.[0-9]{1,2})?$">
+        <input [(ngModel)]="user.balance"  name="balance" class="form-control" #balance="ngModel" required minlength="3" pattern="^([1-9][0-9]{2,})+(.[0-9]{1,2})?$">
         <em *ngIf="updateForm.controls.balance?.invalid && (updateForm.controls.balance?.touched)">Balance must be greater than 100 with maximum 2 decimal</em>
         
         

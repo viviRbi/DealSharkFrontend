@@ -23,6 +23,7 @@ export class SavedGameComponent implements OnInit {
 
   clearSessionSavedGame(){
     sessionStorage.removeItem(environment.sessionNameForSave)
+    sessionStorage.removeItem(environment.sessionUser)
     console.log("clear")
   }
 

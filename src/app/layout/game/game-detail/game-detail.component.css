@@ -4,7 +4,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     width: 250px;
-    height: 200px;
+    height: 75%;
 }
 
 .game-holder{
@@ -42,4 +42,8 @@
 }
 .img-holder:hover .label{
     background: rgb(109, 11, 11);
+}
+.back-btn{
+    margin-bottom: 30px;
+    margin-top:10px
 }

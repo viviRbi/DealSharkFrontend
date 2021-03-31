@@ -38,7 +38,8 @@ export class LoginComponent  implements OnInit, OnDestroy{
   }
   
   ngOnDestroy(){
-    this.sub.unsubscribe()
+    if(this.sub)
+      this.sub.unsubscribe()
   }
 
   public loginUserFromService(): void {
@@ -50,9 +51,9 @@ export class LoginComponent  implements OnInit, OnDestroy{
       }else { 
         this.user = data
         sessionStorage.setItem(environment.sessionUser, JSON.stringify(this.user));
-        console.log("Here's the user", data)
+       // console.log("Here's the user", data)
         //console.log("game arr",this.user.gamesArray)
-        this.saveGameArrToSession(this.user.gamesArray)
+        if(this.user.gamesArray != null) this.saveGameArrToSession(this.user.gamesArray)
         this.router.navigateByUrl(HttpParams['return']);
       }
     })
@@ -60,14 +61,13 @@ export class LoginComponent  implements OnInit, OnDestroy{
 
 
   private saveGameArrToSession(savedGameString){
-console.log("---function sddsd")
     if (savedGameString.includes(",")){
       let savedGameArr = savedGameString.split(",")
-    console.log("2 and aboe")
+    //console.log("2 and aboe")
       let observableBatch  = []
       let gameDetail : IGameDealDetail[]
       savedGameArr.forEach((i) => {
-        console.log(environment.gameDealApi+ "?id=" + i)
+        //console.log(environment.gameDealApi+ "?id=" + i)
         observableBatch.push(this.http.get(environment.gameDealApi+ "?id=" + i))
       })
       // forkJoin ([url1, url2]).subscribe

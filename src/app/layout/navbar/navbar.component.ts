@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit , OnDestroy{
   }
 
   checkSession(){
-    //Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?console.log("save session",JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length) : null
+    Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?console.log("save session",JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length) : null
    this.inCartNumber = Boolean(sessionStorage.getItem(environment.sessionNameForCart))== true ? JSON.parse(sessionStorage.getItem(environment.sessionNameForCart)).length : 0
    this.savedGameNumber = Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length : 0
   }

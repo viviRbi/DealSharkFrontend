@@ -16,17 +16,17 @@
         <em *ngIf="registerForm.controls.password?.invalid && (registerForm.controls.password?.touched  || mouseoverRegister)">Must be more than 3 characters</em>
         
         <label>First Name</label>
-        <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" required>
+        <input [(ngModel)]="user.firstName" name="firstName" class="form-control" required>
         <em *ngIf="registerForm.controls.firstName?.invalid && (registerForm.controls.firstName?.touched || mouseoverRegister)">Must not be empty</em>
         
         <label>Last Name</label>
-        <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" required>
+        <input [(ngModel)]="user.lastName" name="lastName"  class="form-control" required>
         <em *ngIf="registerForm.controls.lastName?.invalid && (registerForm.controls.lastName?.touched  || mouseoverRegister)">Must not be empty</em>
         
         
         <!-- test regex https://www.beautifyconverter.com/regex-tester.php for the regex pattern requirement-->
         <label>Balance</label>
-        <input [(ngModel)]="user.balance" placeholder="Balance" name="balance" class="form-control" #balance="ngModel" required minlength="3" pattern="^([1-9][0-9]{2,})+(.[0-9]{1,2})?$">
+        <input [(ngModel)]="user.balance" name="balance" class="form-control" #balance="ngModel" required minlength="3" pattern="^([1-9][0-9]{2,})+(.[0-9]{1,2})?$">
         <em *ngIf="registerForm.controls.balance?.invalid && (registerForm.controls.balance?.touched  || mouseoverRegister)">Balance must be greater than 100 with maximum 2 decimal</em>
         
         <section class="submit-message">

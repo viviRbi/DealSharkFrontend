@@ -11,7 +11,7 @@
 			<em *ngIf="loginForm.controls.username?.invalid && (loginForm.controls.username?.touched || mouseoverLogin)">Required</em>
 
 			<label>Password</label>
-			<input [(ngModel)]="userLogin.password" name="password" required minlength="3" class="form-control">
+			<input [(ngModel)]="userLogin.password" name="password" required minlength="3" class="form-control" type="password">
 			<em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched || mouseoverLogin)">Required</em>
 
 			<section class="submit-register">
