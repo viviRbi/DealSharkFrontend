@@ -25,6 +25,7 @@ export interface IGameDeal  {
   }
 
   export interface IGameInfo{
+    dealId?: String,
     name: string,
     gameID: number,
     steamAppID: number,
