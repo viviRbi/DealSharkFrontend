@@ -1,13 +1,14 @@
+import { orderUser } from './../../models/orderUser';
 import { ClientMessage } from './../../models/client-message.model';
 import { User } from 'src/app/models/user.model';
 import { order } from './../../models/order';
-import { orderUser } from '../../models/orderUser';
+
 import { CheckoutService } from './../../services/checkout.service';
 
 import { Component, OnInit } from '@angular/core';
 import { environment } from "../../../environments/environment"
 import { BrowserModule } from '@angular/platform-browser'
-import { IGameInfo } from 'src/app/models/gameModel';
+import { IGameInfo, IGameDeal } from 'src/app/models/gameModel';
 
 
 @Component({
@@ -19,9 +20,23 @@ export class CheckoutComponent implements OnInit {
 
   totalPrice=0;
 
+  gameId=0;
+  gamePrice=0;
+  quantity=0;
+  
+
   
 
   orderArray: IGameInfo[] = [];
+
+  arr = [];
+
+  newOwnedGames: order = {
+    gameId: 0,
+    gamePrice: 5,
+    quantity: 0,
+    orderUser: { orderUserId : 0}
+  }
 
   
   newOrder: orderUser = {
@@ -31,7 +46,12 @@ export class CheckoutComponent implements OnInit {
 
   currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 
+  
+  
+
   constructor(private checkoutService: CheckoutService) { }
+
+  orderUser?: orderUser;
 
   ngOnInit(): void {
     this.orderArray = Boolean(sessionStorage.getItem(environment.sessionNameForCart))== true ? JSON.parse(sessionStorage.getItem(environment.sessionNameForCart)) : null;
@@ -47,6 +67,7 @@ viewSessionStorage() {
     console.log("Here is session length" + session.length);
     console.log(session[0].salePrice)
     console.log('Here is the current users id: ' + this.currentUser.id);
+    
 }
 
 purchaseGames() {
@@ -58,43 +79,62 @@ purchaseGames() {
 
 
 //Creating an array of order objects using the list of games in the cart (orderArray)
- /* for(let i = 0; i < this.orderArray.length; i++) {
-    let theOrder: order = {gameId: 0, gamePrice: 0, quantity: 1, orderUserId: 0}
-    theOrder.gameId = this.orderArray[i].gameID;
-    theOrder.gamePrice = this.orderArray[i].salePrice;
-    theOrder.orderUserId = this.currentUser.id;
-    //this.orderArray.push(theOrder);
-  }*/
+  // for(let i = 0; i < this.orderArray.length; i++) {
+  //   let theOrder: order = {gameId: 0, gamePrice: 0, quantity: 1, orderUserId: 0}
+  //   theOrder.gameId = this.orderArray[i].gameID;
+  //   theOrder.gamePrice = this.orderArray[i].salePrice;
+  //   theOrder.orderUserId = this.currentUser.id;
+  //   // this.orderArray.push(theOrder);
+  // }
 
-  console.log("here is the orderArray" + JSON.stringify(this.orderArray));
+  for(let i = 0; i < this.orderArray.length; i++) {
+    
+    // this.orderArray.push(theOrder);
+  }
+
+  // console.log("here is the orderArray" + JSON.stringify(this.orderArray));
+
+  this.arr.push(this.orderArray[0].gameID);
+  this.arr.push(this.orderArray[0].salePrice);
+  this.arr.push(1);
+  this.arr.push(this.currentUser.id);
+  console.log("this is the arr " + this.arr);
 
   this.newOrder.totalPrice = this.totalPrice;
   this.newOrder.user = {"id" : ""+ this.currentUser.id + ""};
 
+
+  sessionStorage.setItem('currentSale', JSON.stringify(this.orderUser));
+
+
+  const currentSale = JSON.parse(sessionStorage.getItem('orderUser'));
+  console.log("this is the current sale " + currentSale);
+
+  
+
+ 
+
+  
+  this.newOwnedGames.gameId = this.orderArray[0].gameID;
+  this.newOwnedGames.gamePrice = this.totalPrice;
+  this.newOwnedGames.quantity = 1;
+  this.newOwnedGames.orderUser = {"orderUserId" : ""+ this.currentUser.id + ""};
+
+  
+
+ 
+
   console.log("here is the new order: " + JSON.stringify(this.newOrder));
+  console.log("here is the orderArray" + JSON.stringify(this.orderArray[0].gameID));
+  console.log("this is new owned games object " + JSON.stringify(this.newOwnedGames));
+  console.log("this is the new owned games object without stringify " + this.newOwnedGames);
   console.log(this.orderArray)
   this.checkoutService.sendOrderUser(this.newOrder).subscribe(data => this.clientMessage = data, error => this.clientMessage.message = "something went wrong in checkout.ts");
- // this.checkoutService.sendGamesArray(this.orderArray);
+  this.checkoutService.sendGamesArray(this.newOwnedGames).subscribe(data => this.clientMessage = data, error => this.clientMessage.message = "something went wrong in checkout.ts 2");
 
   }
 
-  /////////////////////////////////////////////////////
-
-  // this.heroService.registerHero(this.hero).subscribe(data => this.clientMessage = data, error => this.clientMessage.message = 'SOMETHING WENT WRONG IN register.ts');
-  // }
-
-////////////////////////////////////////////////////
-  // public registerUserFromService(): void {
-  //   this.userService.registerUser(this.user).subscribe(data => {
-  //     this.clientMessage = data
-  //     if (data != null){
-  //       console.log(data)
-  //       this.message = "You have successfully create an account. Please click here to log in"
-  //     }else 
-  //       this.errMessage = "Something had gone wrong at the backend or you have been disconnect to our server"
-  //   }, error => this.clientMessage.message = 'SOMETHING WENT WRONG IN REGISTER.TS')
-  // }
-  /////////////////////////////////////////////////////////////////////////
+ 
 }
 
 

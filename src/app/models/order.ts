@@ -1,6 +1,8 @@
+import { orderUser } from './orderUser';
 export interface order {
-    gameId?: number;
-    gamePrice?: number;
-    quantity?: number;
-    orderUserId?: number;
+    orderid?: Number,
+    gameId?: Number;
+    gamePrice?: Number;
+    quantity?: Number;
+    orderUser: Object;
 }
