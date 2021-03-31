@@ -21,6 +21,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public registerUser(user : User): Observable<ClientMessage> {
+   
     return this.http.post<ClientMessage>(`${DEALSHARK_URL}register`, user)
     .pipe(catchError(this.handleError<ClientMessage>('register User', undefined)));
   }

@@ -21,9 +21,17 @@ export class CheckoutService {
   constructor(private http: HttpClient) { }
 
  public sendOrderUser(newOrder : orderUser): Observable<ClientMessage> {
+   console.log("it is hitting here");
    return this.http.post<ClientMessage>(`${DEALSHARK_URL}newOrder`, newOrder)
    .pipe(catchError(this.handleError<ClientMessage>('New Order', undefined)));
+   
  }
+
+//  public registerUser(user : User): Observable<ClientMessage> {
+   
+//   return this.http.post<ClientMessage>(`${DEALSHARK_URL}register`, user)
+//   .pipe(catchError(this.handleError<ClientMessage>('register User', undefined)));
+// }
 
 public sendGamesArray(gamesArray: Array<Object>) {
   return this.http.post<ClientMessage>(`${DEALSHARK_URL}newOwnedGames`, gamesArray)

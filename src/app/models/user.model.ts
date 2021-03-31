@@ -1,3 +1,4 @@
+
 export interface User {
 
     id?: number;
@@ -6,6 +7,10 @@ export interface User {
     firstName?: string;
     lastName?: string;
     balance?: number;
+  
+    // New push tableName for save game and purchase?
+    savedGame?: string
+    purchasedGame?: string
 
     // In case table name switched
     saved_games?: string;
@@ -15,6 +20,7 @@ export interface User {
     gamesArray?: string;
     purchasedArray?: string;
 }
+
 
 
 
