@@ -1,45 +1,48 @@
-<br />
-<div class="container bg-light register-pannel border-radius-small">
+
+<main class="container bg-light register-pannel border-radius-small">
 
     <h2 class="text-center"> Update Info </h2>
 
-    <form #registerForm="ngForm" name="registerForm" (ngSubmit)="updateUser()" class="form-group" >
-
+    <form #updateForm="ngForm" name="updateForm" (ngSubmit)="updateUser()">
+        
         <label>Username</label>
         <input [(ngModel)]="user.username"  name="username" class="form-control" required minlength="3">
-        <em *ngIf="registerForm.controls.username?.invalid && (registerForm.controls.username?.touched)">Must be more than 3 characters</em>
+        <em *ngIf="updateForm.controls.username?.invalid && (updateForm.controls.username?.touched)">Must be more than 3 characters</em>
         
         <label>Password</label>
         <input [(ngModel)]="user.password"  type="password" name="password" class="form-control" required minlength="3">
-        <em *ngIf="registerForm.controls.password?.invalid && (registerForm.controls.password?.touched)">Must be more than 3 characters</em>
+        <em *ngIf="updateForm.controls.password?.invalid && (updateForm.controls.password?.touched)">Must be more than 3 characters</em>
         
         <label>First Name</label>
         <input [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" class="form-control" required>
-        <em *ngIf="registerForm.controls.firstName?.invalid && (registerForm.controls.firstName?.touched)">Must not be empty</em>
+        <em *ngIf="updateForm.controls.firstName?.invalid && (updateForm.controls.firstName?.touched)">Must not be empty</em>
         
         <label>Last Name</label>
         <input [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" class="form-control" required>
-        <em *ngIf="registerForm.controls.lastName?.invalid && (registerForm.controls.lastName?.touched)">Must not be empty</em>
-        
-        
+        <em *ngIf="updateForm.controls.lastName?.invalid && (updateForm.controls.lastName?.touched)">Must not be empty</em>        
 
         <label>Balance</label>
         <input [(ngModel)]="user.balance" placeholder="Balance" name="balance" class="form-control" #balance="ngModel" required minlength="3" pattern="^([1-9][0-9]{2,})+(.[0-9]{1,2})?$">
-        <em *ngIf="registerForm.controls.balance?.invalid && (registerForm.controls.balance?.touched)">Balance must be greater than 100 with maximum 2 decimal</em>
+        <em *ngIf="updateForm.controls.balance?.invalid && (updateForm.controls.balance?.touched)">Balance must be greater than 100 with maximum 2 decimal</em>
         
-        <section class="submit-message">
-            <span>
-                <button class="btn bg-black text-light btn-center float-right" [disabled] = "!registerForm.form.valid">Register User</button>
+        
+    
+        <div class="update-submit-message">
+            <span (mouseenter)="mouseoverUpdate=true" (mouseleave)="mouseoverUpdate=false">
+                <button class="btn bg-black text-light btn-center float-right" [disabled] = "!updateForm.form.valid">Update User</button>
             </span>
-    <!--
             <div *ngIf="message" class="text-primary float-left btn-link pointer" routerLink = "/login">
                 <p>{{message}}</p>
             </div>
             <div *ngIf="errMessage" class="text-danger float-left">
                 <p>{{errMessage}}</p>
             </div>
+        
             <div class="float-clear"></div>
-        -->
-        </section>
+        </div>
+            
+        
+
     </form>
-</div>
+
+</main>

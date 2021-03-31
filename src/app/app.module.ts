@@ -16,7 +16,6 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { WelcomeComponent } from './layout/welcome/welcome.component';
 import { LoginComponent } from './layout/login/login.component';
 import { CheckoutComponent } from './layout/checkout/checkout.component';
-import { ProfileComponent } from './layout/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { ProfileComponent } from './layout/user/profile/profile.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
     CheckoutComponent
   ],
 

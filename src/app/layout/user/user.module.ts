@@ -4,6 +4,8 @@ import { RoutingUserModule } from '../../routing-module/routing-user.module';
 
 import { OwnedGameComponent } from './owned-game/owned-game.component';
 import { SavedGameComponent } from './saved-game/saved-game.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,9 +13,11 @@ import { SavedGameComponent } from './saved-game/saved-game.component';
   declarations: [
     OwnedGameComponent,
     SavedGameComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RoutingUserModule
   ],
 

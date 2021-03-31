@@ -42,7 +42,7 @@ export class LoginService {
   }
 
   loggedIn(){
-    return !!sessionStorage.getItem('currentUser')
+    return Boolean(sessionStorage.getItem('currentUser'))
   }
 
   public logoutUser(){

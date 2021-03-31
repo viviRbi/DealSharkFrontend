@@ -1,6 +1,5 @@
 
 import { Component, OnInit, DoCheck, Input, OnDestroy } from '@angular/core';
-import { IGameInfo } from '../../models/gameModel';
 import { LoginService } from '../../services/login.service';
 import { ParentChildCommuteService } from "../../services/parent-child-commute.service";
 import { environment } from '../../../environments/environment';
@@ -16,6 +15,7 @@ export class NavbarComponent implements OnInit , OnDestroy{
 
   inCartNumber?: number =0
   savedGameNumber?: number =0
+  loggedIn: Boolean = false
 
   savedGameId?: string
 
@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit , OnDestroy{
   }
 
   checkSession(){
-    Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?console.log("save session",JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length) : null
+    //Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?console.log("save session",JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length) : null
    this.inCartNumber = Boolean(sessionStorage.getItem(environment.sessionNameForCart))== true ? JSON.parse(sessionStorage.getItem(environment.sessionNameForCart)).length : 0
    this.savedGameNumber = Boolean(sessionStorage.getItem(environment.sessionNameForSave))== true ?JSON.parse(sessionStorage.getItem(environment.sessionNameForSave)).length : 0
   }

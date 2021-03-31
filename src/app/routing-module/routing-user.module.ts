@@ -10,7 +10,8 @@ import { SavedGameComponent } from '../layout/user/saved-game/saved-game.compone
 const routes: Routes = [
     {path: '', component: ProfileComponent},
     {path: 'owned-game', component: OwnedGameComponent},
-    {path: 'saved-game', component: SavedGameComponent}
+    {path: 'saved-game', component: SavedGameComponent},
+    {path: 'profile', component: ProfileComponent}
   ];
   // Route guard will return not sign-in user to welcome page when acess /user path
   // canActivate: [AuthGuard]
