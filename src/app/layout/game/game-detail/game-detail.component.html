@@ -37,7 +37,7 @@
                 <hr>
                 <div class="row">
                     <article class="col-sm-6 col-12">
-                        <button (click)="passSaveGame()" class="btn bg-red text-light form-control btn-red">Save Game</button>
+                        <button (click)="passSaveGame()" class="btn bg-red text-light form-control btn-red" *ngIf="loginService.loggedIn()">Save Game</button>
                     </article>
                     <article class="col-sm-6 col-12">
                         <button (click)="passCartGame()" class="btn bg-red text-light form-control btn-red">Add To Cart</button>

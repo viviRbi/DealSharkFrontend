@@ -7,6 +7,7 @@ import { IGameInfo } from 'src/app/models/gameModel';
 import { GameService } from "../../../services/game.service";
 import { ParentChildCommuteService } from "../../../services/parent-child-commute.service"
 import { environment } from "../../../../environments/environment"
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-game-detail',
@@ -21,7 +22,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private gameService : GameService, private parentChildCommute: ParentChildCommuteService, 
-    private route: ActivatedRoute, private location: Location
+    private route: ActivatedRoute, private location: Location, public loginService: LoginService
   ) { }
 
   ngOnInit(): void {

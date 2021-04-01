@@ -7,7 +7,7 @@
       <div class ="nav-right col-6 d-inline text-right">
         <span class="btn text-light pointer" routerLink="/user/profile" *ngIf="loginService.loggedIn()">Profile</span>
         <span class="btn text-light pointer" routerLink="/user/saved-game" *ngIf="loginService.loggedIn()">Favourite ({{savedGameNumber}})</span>
-        <span class="btn text-light pointer" routerLink="/checkout"*ngIf="loginService.loggedIn()">Cart ({{inCartNumber}})</span>
+        <span class="btn text-light pointer" routerLink="/checkout">Cart ({{inCartNumber}})</span>
 
         <span class="btn text-light" routerLink="/register" *ngIf="!loginService.loggedIn()" >Register</span>
         <span class="btn text-light" routerLink="/login" *ngIf="!loginService.loggedIn()" >Login</span>
